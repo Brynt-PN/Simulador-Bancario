@@ -1,0 +1,416 @@
+/* IMPORTS ---------------------------------------------- */
+@import url(variables.css);
+
+/* IFRAME ----------------------------------------------- */
+#body-opData{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+#body-codData{
+    display: none;
+    position: fixed;
+    width: 30%;
+    height: 65%;
+    top: 17.5%;
+    left: 35%;
+    border-radius: 15px;
+}
+#body-cajaData{
+    display: none;
+    position: fixed;
+    width: 40%;
+    height: 89%;
+    top: 5.5%;
+    left: 30%;
+    border-radius: 15px;
+}
+/* SECTION ---------------------------------------------- */
+
+/* SEC - NAV-BAR */
+#nav-bar{
+    background-color: var(--azul-o);
+    height: var(--header-space);
+}
+#nav-bar .option-list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 10px 15px;
+}
+#nav-bar .option{
+    list-style-type: none;
+    margin: 0 10px;
+    text-align: center;
+    font-weight:900;
+    color: var(--azul-c);
+    cursor: pointer;
+}
+
+/* SEC - CONTENT */
+#content{
+    width: 100%;
+    height: var(--body-space);
+}
+
+/* SEC - STATE-BAR */
+#state-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    color: var(--n);
+    background-color: var(--azul-c);
+    font-weight: 500;
+    align-items: center;
+    height: var(--footer-space);
+    padding: 4px 15px;
+}
+
+/* OP DATA ------------------------------------------------------------- */
+/* GENERALS -------------------------------------------- */
+#body-opData{
+    background-color: var(--azul-g);
+    width: 100%;
+    height: 90%;
+    padding: auto 0;
+    position: relative;
+}
+#exit-OP{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--b);
+    font-size: 1em;
+    cursor: pointer;
+}
+/* SECTION --------------------------------------------------- */
+
+.sec-ventana{
+    width: 100vw;
+    background-color: var(--gris-c);
+    padding: 1%;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--n);
+    border-bottom: 2px solid var(--gris-o);    
+}
+
+/* SEC - INFO-BAR --------------------------*/
+#info-bar .box-info{
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* INGRESO ---------*/
+#ing-info-bar input{
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    font-family: var(--f);
+    font-size: 1em;
+    font-weight: 800;
+    background-color: var(--b);
+}
+/* TIPO CAMPIO --- */
+#info-bar #tc-info-bar{
+    flex-basis: 60%;
+    border-left: 2px solid var(--gris-o);
+    border-right: 2px solid var(--gris-o);
+}
+#tc-info-bar .row{
+    width: 95%;
+    justify-content: center;
+}
+#tc-info-bar .row p{
+    flex-basis: 25%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+}
+#tc-info-bar .row input{
+    flex-basis: 25%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+}
+/* SALDO ------- */
+#sal-info-bar .row{
+    width: 95%;
+    justify-content: center;
+}
+#sal-info-bar .row p{
+    text-align: center;
+    font-weight: 700;
+    padding: 4px;
+}
+
+/* SEC - INPUT-BAR --------------------------*/
+
+#input-bar{
+    flex-wrap: wrap;
+}
+
+/* TIPO OP --------------*/
+#input-bar #to-input-bar{
+    flex-basis: 65%;
+    padding: 2px;
+}
+#to-input-bar .row{
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    padding: 5px;
+}
+#to-input-bar .row label{
+    font-size: 15px;
+    margin-right: 3px;
+}
+#to-input-bar .row #cod-to-inp-br{
+    width: 50%;
+}
+#to-input-bar .row div{
+    flex-basis: 20%;
+}
+#to-input-bar .row input{
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+}
+#to-input-bar .row p{
+    flex-basis: 60%;
+    text-align: center;
+    font-weight: 700;
+    padding: 2px;
+    background-color: var(--b);
+}
+#to-input-bar .row select{
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    flex-basis: 20%;
+    margin-right: 5PX;
+}
+#to-input-bar .row #nc-to-inp-br{
+    flex-basis: 35%;
+
+}
+
+/* OP CHEQUE ----------------- */
+#input-bar #oc-input-bar{
+    flex-basis: 35%;
+    padding: 2px;
+}
+#oc-input-bar div{
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+}
+#oc-input-bar  input{
+    width: 70%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+}
+#oc-input-bar .row{
+    width: 100%;
+}
+#oc-input-bar .row input{
+    flex-basis: 35%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    margin-right: 5px;
+}
+#oc-input-bar .row label{
+    font-size: 15px;
+    margin-right: 3px;
+}
+#oc-input-bar .row select{
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    flex-basis: 20%;
+    margin-right: 5PX;
+}
+
+/* IMPORTE ----------------- */
+#input-bar #imp-input-bar{
+    flex-basis: 100%;
+    justify-content: start;
+    align-items: center;
+    padding: 2px;
+}
+#imp-input-bar div{
+    flex-basis: 25%;
+}
+#imp-input-bar select{
+    width: 70%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    margin-right: 5px;
+}
+#imp-input-bar input{
+    width: 70%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    margin-right: 5px;
+}
+#imp-input-bar button{
+    flex-basis: 25%;
+    padding: 5px;
+    font-weight: 600;
+    background-color: var(--azul-o);
+    color: var(--b);
+    border-radius: 5px;
+}
+
+/* SEC - OUDTPUT-BAR --------------------------*/
+#oudtpu-bar{
+    height: 100%;
+}
+#oudtpu-bar div{
+    width: 100%;
+    max-height: 55vh;
+    overflow: scroll;
+}
+#oudtpu-bar table{
+    background-color: var(--b);
+    width: 100%;
+    border: 2px solid var(--gris-o);
+    text-align: center;
+    
+}
+#oudtpu-bar thead{
+    position: sticky;
+    width: 100%;
+    top: 0;
+}
+#oudtpu-bar thead tr{
+    background-color: var(--azul-c);
+}
+
+/* COD DATA -------------------------------------------------------- */
+/* GENERALS-------------------------- */
+#body-codData{
+    padding: 1vh;
+    background-color: var(--n);
+}
+
+#exit-COD{
+    position: absolute;
+    top: 0;
+    right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--b);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* ESPECIFICTS ---------------------- */
+
+#body-codData table{
+    width: 100%;
+    height: 100%;
+    background-color: var(--n);
+    color: var(--b);
+    text-align: center;
+}
+#body-codData thead td{
+    color: var(--b);
+    font-weight: 900;
+}
+#body-codData tbody td:first-child{
+    color: var(--azul-o);
+    font-weight: 900;
+}
+#body-codData td{
+    color: var(--gris-c);
+    font-weight: 600;
+}
+
+/* CAJA DATA --------------------------------------------------------- */
+/* GENERALS --------------------------- */
+
+#body-cajaData{
+    background-color: var(--n);
+    padding: 1%;
+}
+
+#exit-CAJ{
+    position: absolute;
+    top: 0;
+    right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--b);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* ESPECIFICTS ----------------------- */
+#body-cajaData h2{
+    color: var(--b);
+    font-size: 2em;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 1%;
+}
+#body-cajaData table {
+    width: 100%;
+    color: var(--azul-o);
+    margin-bottom: 1%;
+    text-align: end;
+}
+#body-cajaData #general thead tr{
+    color: var(--azul-c);
+    font-size: 1.25em;
+}
+#body-cajaData #general th{
+    border-bottom: 2px solid var(--b);
+}
+#body-cajaData tbody tr td:first-child{
+    color: var(--b);
+    text-align: start;
+}
+#body-cajaData table#especific {
+    color: var(--azul-o);
+    text-align: center;
+    border-top: 2px solid var(--b);
+}
+#body-cajaData #especific th{
+    font-size: 1.25em;
+}
+#body-cajaData #especific tr td:first-child{
+    color: var(--azul-c);
+    font-size: 1.25em;
+    text-align: start;
+}
+#body-cajaData #resoult{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    color: var(--azul-o);
+}
+#body-cajaData #resoult div{
+    flex-basis: 19%;
+    border-bottom: 2px solid var(--b);
+    border-top: 2px solid var(--b);
+    text-align: center;
+}
+#body-cajaData #resoult div:first-child{
+    flex-basis: 40%;
+    color: var(--b);
+    font-size: 1.5em;
+    text-align: start;
+}

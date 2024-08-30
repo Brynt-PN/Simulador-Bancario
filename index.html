@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>JUECP BANC</title>
+</head>
+<body>
+    <header>
+        <section id="nav-bar">
+            <ul class="option-list">
+                <li class="option" onclick="openOperaciones()">Operaciones</li>
+                <li class="option"onclick="openCodigos()">Codigos</li>
+                <li class="option"onclick="openCaja()">Cuadre de caja</li>
+            </ul>
+        </section>
+    </header>
+    <main>
+        <section id="body-opData">
+            <div id="exit-OP" onclick="closeOperaciones()">
+                x
+            </div>
+            <!-- SALDO - TIPO DE CMABIO - INGRESO ---------------------->
+            <Section id="info-bar" class="row sec-ventana">
+                <!-- INGRESO ----------------->
+                <div id="ing-info-bar" class="box-info">
+                    <div><h2>INGRESO INICIAL</h2></div><!-- TITULO -->
+                    <!-- SOLES -->
+                    <input id="ing-s/" type="number" step="0.01" placeholder="S/ 000.00" onchange="showPEN(this.value)">
+                    <!-- DOLARES -->
+                    <input id="ing-$" type="number" step="0.01" placeholder="$ 000.00" onchange="showUSD(this.value)">        
+                    <!-- EUROS -->
+                    <input id="ing-E" type="number" step="0.01" placeholder="000.00 €" onchange="showEUR(this.value)">            
+                </div>
+                <!-- TIPO CAMBIO ------------->
+                <div id="tc-info-bar" class="box-info">
+                    <div><h2>TIPO DE CAMBIO</h2></div><!-- TITULO -->
+                    <!-- DATOS -->
+                    <div class="row">
+                        <!-- MONEDAS -->
+                        <p>DOLARES</p>
+                        <p>EUROS</p>
+                        <p>DOLARES</p>
+                        <p>EUROS</p>
+                    </div>
+                    <div class="row">
+                        <!-- VENTA -->
+                        <input id="tc-v-$" type="number" step="0.01" placeholder="S/ VENTA">
+                        <input id="tc-v-E" type="number" step="0.01" placeholder="S/ VENTA">
+                        <input id="tc-ve-$" type="number" step="0.01" placeholder="S/ VENTA ESP.">
+                        <input id="tc-ve-E" type="number" step="0.01" placeholder="S/ VENTA ESP.">
+                    </div>
+                    <div class="row">
+                        <!-- COMPRA -->
+                        <input id="tc-c-$" type="number" step="0.01" placeholder="S/ COMPRA">
+                        <input id="tc-c-E" type="number" step="0.01" placeholder="S/ COMPRA">
+                        <input id="tc-ce-$" type="number" step="0.01" placeholder="S/ COMPRA ESP.">
+                        <input id="tc-ce-E" type="number" step="0.01" placeholder="S/ COMPRA ESP.">
+                    </div>
+                </div>
+                <!-- SALDO ------------------->
+                <div id="sal-info-bar" class="box-info">
+                    <div><h2>SALDO DE CAJA</h2></div><!-- TITULO -->
+                    <!-- DATOS -->
+                    <div class="row">
+                        <p>S/ </p>
+                        <div><p id="sal-s/">000.00</p></div>
+                    </div>
+                    <div class="row">
+                        <p>$ </p>
+                        <div><p id="sal-$">000.00</p></div>
+                    </div>
+                    <div class="row">
+                        <div><p id="sal-E">000.00</p></div>
+                        <p> €</p>
+                    </div>
+                </div>
+            </Section>
+            <!-- TIPO OP - OP CHEQUE - IMPORTE ------------------------->
+            <section id="input-bar" class="row sec-ventana">
+                <!-- TIPO OP ------------------>
+                <div id="to-input-bar">
+                    <!-- COD - TPO TRNA -->
+                    <div class="row">
+                        <div>
+                            <label for="cod-to-inp-br">CÓDIGO :</label>
+                            <!-- <input id="cod-to-inp-br" type="number" min="100" max="999"> -->
+                            <select id="cod-to-inp-br" name="cod-to-inp-br" onchange="showTransac(this.value)">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <p id="tipo-transac-p">TIPO DE TRANSACCIÓN</p>
+                    </div>
+                    <!-- TPO CUENT - NU CUENT -->
+                    <div class="row">
+                        <label for="tc-to-inp-br">TIPO CUENTA Y/O SERVICIO :</label>
+                        <select id="tc-to-inp-br" name="tc-to-inp-br">
+                            <option value=""></option>
+                        </select>
+                        <label for="nc-to-inp-br">N° CUENTA Y/O COD. SERVICIO :</label>
+                        <input id="nc-to-inp-br" type="number">
+                    </div>
+                </div>
+                <!-- OP CHEQUE ---------------->
+                <div id="oc-input-bar">
+                    <!-- CUENTA GIRA -->
+                    <div>
+                        <label for="cg-oc-inp-br">CUENTA QUE GIRA :</label>
+                        <input id="cg-oc-inp-br" type="number">
+                    </div>
+                    <!-- CHEQUE - PLAZA -->
+                    <div class="row">
+                        <!-- N CHEQUE -->
+                        <label for="nch-oc-inp-br">N° DE CHEQUE :</label>
+                        <input id="nch-oc-inp-br" type="number">
+                        <!-- PLAZA -->
+                        <label for="pl-oc-inp-br">PLAZA :</label>
+                        <select id="pl-oc-inp-br" name="pl-oc-inp-br">
+                            <option value=""> </option>
+                        </select>
+                    </div>
+                </div>
+                <!-- IMPORTE ------------------>
+                <div id="imp-input-bar" class="row">
+                    <!-- MONEDA -->
+                    <div>
+                        <label for="mo-imp-inp-br">MONEDA :</label>
+                        <select id="mo-imp-inp-br" name="mo-imp-inp-br" onchange="showComision(this.value)">
+                            <option value=""> </option>
+                            <option value="PEN">PEN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                    <!-- IMPORTE -->
+                    <div>
+                        <label for="imp-imp-inp-br">IMPORTE :</label>
+                        <input id="imp-imp-inp-br" type="number" step="0.01" placeholder="000.00">
+                    </div>
+                    <!-- COMISION -->
+                    <div>
+                        <label for="com-imp-inp-br">COMISIÓN :</label>
+                        <input id="com-imp-inp-br" type="number" step="0.01" placeholder="000.00">
+                    </div>
+                    <!-- GRABAR -->
+                    <button onclick="saveOP()">GRABAR</button>
+                </div>
+            </section>
+            <!-- TABLA DE OPERACIONES ---------------------------------->
+            <section id="oudtpu-bar" class=" sec-ventana">
+                <div>
+                    <table border="1" id="tabla-oudtpu">
+                        <thead>
+                            <tr>
+                                <th>CÓDIGO</th>
+                                <th>TRANSACCIÓN</th>
+                                <th>CUENTA/SERVICIO</th>
+                                <th>N° CUENTA/COD. SERVICIO</th>
+                                <th>CTA. QUE GIRA</th>
+                                <th>N° CHEQUE</th>
+                                <th>PLAZA</th>
+                                <th>IMPORTE</th>
+                                <th>COMISIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <section id="body-codData">
+            <div id="exit-COD" onclick="closeCodigos()">
+                x
+            </div>
+            <table id="codigos-info-table">
+                <thead>
+                    <tr>
+                        <td>CÓDIGO</td>
+                        <td>TRANSACCIÓN</td>
+                        <td colspan="2">COMISIÓN</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+        <section id="body-cajaData">
+            <div id="exit-CAJ" onclick="closeCaja()">
+                x
+            </div>
+            <div>
+                <h2>CUADRE DE CAJA</h2>
+            </div>
+            <table id="general">
+                <thead>
+                    <tr>
+                        <th>PRODUCTOS / SERVICIOS</th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>                   
+                </tbody>
+            </table>
+            <table id="especific">
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th>DEBE</th>
+                        <th>HABER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SOLES</td>
+                        <td>S/ -</td>
+                        <td>S/ -</td>
+                    </tr>
+                    <tr>
+                        <td>DÓLARES</td>
+                        <td>$-</td>
+                        <td>$-</td>
+                    </tr>
+                    <tr>
+                        <td>EUROS</td>
+                        <td>- €</td>
+                        <td>- €</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="resoult">
+                <div>SALDO EFECTIVO</div>
+                <div>S/ -</div>
+                <div>$ -</div>
+                <div>- €</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section id="state-bar">
+            <p>Simuladore de caja</p>
+        </section>
+    </footer>
+</body>
+<script src="app/app.js"></script>
+</html>

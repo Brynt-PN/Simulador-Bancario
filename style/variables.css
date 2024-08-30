@@ -1,0 +1,55 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+/* VARIABLE */
+:root{
+    /* COLORS */
+    --gris-o:#666666;
+    --gris-c:#8b8b8b;
+    --azul-g:#4c5c8e;
+    --azul-o:#2f629e;
+    --azul-c:#7298b6;
+    --n:#000;
+    --b:#fff;
+    /* FONTS */
+    --font-name:"Noto Sans KR";
+    /* SPACE */
+    --header-space:5vh;
+    --body-space:92vh;
+    --footer-space:3vh;
+}
+/* ---------- CLASES ------------ */
+
+/* ---------- GENERALS ----------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: var(--gris-c);
+    height: 100vh;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* FONTS */
+div,th,td,select,button,input,label,li,h1,h2,h3,h4,p{
+    font-family: var(--font-name);
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.windows{
+    width: 100%;
+    height: 100%;
+}
+.row{
+    display: flex;
+}
