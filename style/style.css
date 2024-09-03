@@ -435,4 +435,40 @@
         max-width: 27.5%;
     }
 
+    #input-bar.row.sec-ventana{
+        display: block;
+    }
+    #input-bar #box-codigo{
+        flex-basis: 40%;
+    }
+    #input-bar label[for='pl-oc-inp-br']{
+        flex-basis: 10%;
+        margin-left: 20px;
+    }
+    #input-bar select[name='pl-oc-inp-br']{
+        flex-basis: 30%;
+    }
+    #input-bar #imp-input-bar label{
+        text-align: center;
+    }
+
+    #oudtpu-bar th{
+        font-size: 0.7rem;
+    }
+
+    #body-codData{
+        width: 80%;
+        height: 80%;
+        top: 10%;
+        left: 10%;
+        overflow: scroll;
+    }
+
+    #body-cajaData{
+        width: 80%;
+        height: 90%;
+        top: 5%;
+        left: 10%;
+        overflow: scroll;
+    }
 }
