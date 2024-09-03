@@ -44,7 +44,7 @@
     margin: 0 10px;
     text-align: center;
     font-weight:900;
-    color: var(--azul-c);
+    color: var(--b);
     cursor: pointer;
 }
 
@@ -418,6 +418,14 @@
 /* RESPOSIVE ------------------------------------------------------ */
 
 @media (max-width: 1300px) {
+    #nav-bar{
+        height: 30px;
+    }
+
+    #state-bar{
+        display: none;
+    }
+
     #info-bar .box-info{
         flex-basis: 30%;
     }
