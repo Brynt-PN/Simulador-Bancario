@@ -193,10 +193,7 @@ function showComision(value){
 }
 // SAVE ---------------
 function saveTipoCambio(value,divs,cod){
-    console.log(datos[cod][3][divs]);
     datos[cod][3][divs] = value;
-    console.log(value,divs,cod);
-    console.log(datos[cod][3][divs]);
 }
 
 // EJECUTABLES --------------------------------------
