@@ -54,17 +54,17 @@
                     </div>
                     <div class="row">
                         <!-- VENTA -->
-                        <input id="tc-v-$" type="number" step="0.01" placeholder="S/ VENTA">
-                        <input id="tc-v-E" type="number" step="0.01" placeholder="S/ VENTA">
-                        <input id="tc-ve-$" type="number" step="0.01" placeholder="S/ VENTA ESP.">
-                        <input id="tc-ve-E" type="number" step="0.01" placeholder="S/ VENTA ESP.">
+                        <input id="tc-v-$" type="number" step="0.01" placeholder="S/ VENTA" onchange="saveTipoCambio(this.value,'USD',7005)">
+                        <input id="tc-v-E" type="number" step="0.01" placeholder="S/ VENTA" onchange="saveTipoCambio(this.value,'EUR',7005)">
+                        <input id="tc-ve-$" type="number" step="0.01" placeholder="S/ VENTA ESP." onchange="saveTipoCambio(this.value,'USD',7020)">
+                        <input id="tc-ve-E" type="number" step="0.01" placeholder="S/ VENTA ESP." onchange="saveTipoCambio(this.value,'EUR',7020)">
                     </div>
                     <div class="row">
                         <!-- COMPRA -->
-                        <input id="tc-c-$" type="number" step="0.01" placeholder="S/ COMPRA">
-                        <input id="tc-c-E" type="number" step="0.01" placeholder="S/ COMPRA">
-                        <input id="tc-ce-$" type="number" step="0.01" placeholder="S/ COMPRA ESP.">
-                        <input id="tc-ce-E" type="number" step="0.01" placeholder="S/ COMPRA ESP.">
+                        <input id="tc-c-$" type="number" step="0.01" placeholder="S/ COMPRA" onchange="saveTipoCambio(this.value,'USD',7010)">
+                        <input id="tc-c-E" type="number" step="0.01" placeholder="S/ COMPRA" onchange="saveTipoCambio(this.value,'EUR',7010)">
+                        <input id="tc-ce-$" type="number" step="0.01" placeholder="S/ COMPRA ESP." onchange="saveTipoCambio(this.value,'USD',7015)">
+                        <input id="tc-ce-E" type="number" step="0.01" placeholder="S/ COMPRA ESP." onchange="saveTipoCambio(this.value,'EUR',7015)">
                     </div>
                 </div>
                 <!-- SALDO ------------------->
@@ -170,6 +170,7 @@
                                 <th>PLAZA</th>
                                 <th>IMPORTE</th>
                                 <th>COMISIÓN</th>
+                                <th>EQ.PEN</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -1,29 +1,29 @@
 // CONSTANTES ----------------------------------------
 const datos = {
-    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5}],
-    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5}],
-    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2}],
-    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2}],
-    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0}],
-    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0}]
+    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{USD:0.0,EUR:0.0}],
+    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{USD:0.0,EUR:0.0}],
+    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{USD:0.0,EUR:0.0}],
+    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{USD:0.0,EUR:0.0}],
+    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}],
+    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0}]
 };
 const color = {
     "YWRtaW5Ac2IuY29t" : "c2IxOTk4"
@@ -191,6 +191,13 @@ function showTransac(value){
 function showComision(value){
     datoComision.value = datos[listCodigo.value][2][value];
 }
+// SAVE ---------------
+function saveTipoCambio(value,divs,cod){
+    console.log(datos[cod][3][divs]);
+    datos[cod][3][divs] = value;
+    console.log(value,divs,cod);
+    console.log(datos[cod][3][divs]);
+}
 
 // EJECUTABLES --------------------------------------
 // PASAR DATOS A LISTAS --------------
@@ -263,6 +270,7 @@ Object.keys(datos).forEach(codigo =>{
     tableRow.appendChild(celda4);
     tablebody.appendChild(tableRow);
 });
+// Tabla Registro de Operaciones
 function updateTableResults(){
     // Capturamos el tbody
     var tablebody = tableResults.querySelector('tbody');
@@ -277,6 +285,7 @@ function updateTableResults(){
     var celda7 = document.createElement('td');
     var celda8 = document.createElement('td');
     var celda9 = document.createElement('td');
+    var celda10 = document.createElement('td');
     // Asignando Valores
     celda1.textContent = listCodigo.value;
     celda2.textContent = datoTipoTransac.textContent;
@@ -287,6 +296,7 @@ function updateTableResults(){
     celda7.textContent = listPlaza.value;
     celda8.textContent = divisaFormat(datoImporte.value, listMoneda.value);
     celda9.textContent = divisaFormat(datoComision.value, listMoneda.value);
+    celda10.textContent = divisaFormat((datoImporte.value * datos[listCodigo.value][3][listMoneda.value]),"PEN");
     // Agregamos al DOM
     tableRow.appendChild(celda1);
     tableRow.appendChild(celda2);
@@ -297,6 +307,7 @@ function updateTableResults(){
     tableRow.appendChild(celda7);
     tableRow.appendChild(celda8);
     tableRow.appendChild(celda9);
+    tableRow.appendChild(celda10);
     tablebody.appendChild(tableRow);
 }
 
