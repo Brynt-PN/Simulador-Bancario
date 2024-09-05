@@ -25,6 +25,9 @@ const datos = {
     7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0}],
     9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0}]
 };
+const users = {
+    "admin@simbacn.com" : "123"
+}
 const tiposCuenta = [
     "CUENTA CORRIENTE",
     "CUENTA DE AHORROS",
@@ -77,6 +80,7 @@ const plazas = [
 ];
 
 // PESTAÑAS ------------------------------------------
+var registro = document.getElementById("body-user");
 var operacionesPage = document.getElementById("body-opData");
 var codigosPage = document.getElementById("body-codData");
 var cajaPage = document.getElementById("body-cajaData");
@@ -106,6 +110,8 @@ var tableEspecific = document.getElementById("especific");
 
 
 // DATOS CAPTURADOS ---------------------------------
+var user = document.getElementById("user-data");
+var password = document.getElementById("password-data");
 var datoImporte = document.getElementById("imp-imp-inp-br");         //8 format
 var datoNumCuenta = document.getElementById("nc-to-inp-br");         //4
 var datoCuentaGira = document.getElementById("cg-oc-inp-br");        //5
@@ -113,6 +119,23 @@ var datoNumCheque = document.getElementById("nch-oc-inp-br");        //6
 var datoComision = document.getElementById("com-imp-inp-br");        //9 format
 
 // FUNTION ------------------------------------------
+// VALIDATION ---------
+function login(){
+    if(user.value && password.value){
+        var verifi = (password.value == users[user.value])
+        if(verifi){
+            registro.style.display = "none";
+        }
+        else{
+            user.value = "";
+            password.value = "";
+            alert("Usuario o Contraseña incorrecto")
+        }
+    }
+    else{
+        alert("Igresa Usuario y Contraseña para iniciar el programa");
+    }
+}
 // FORMAT -------------
 function divisaFormat(value, divs){
     value = parseFloat(value);

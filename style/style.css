@@ -2,6 +2,15 @@
 @import url(variables.css);
 
 /* IFRAME ----------------------------------------------- */
+#body-user{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
 #body-opData{
     display: none;
     width: 100vw;
@@ -66,6 +75,43 @@
     align-items: center;
     height: var(--footer-space);
     padding: 4px 15px;
+}
+
+/* USER ---------------------------------------------------------------- */
+#user-register{
+    background-color: var(--b);
+    color: var(--azul-g);
+    width: 300PX;
+    height: 330PX;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+#body-user h2{
+    margin-bottom: 20px;
+}
+#body-user input{
+    height: 40px;
+    width: 80%;
+    margin: 15px 0;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+#body-user button{
+    margin: 20px 0;
+    height: 40px;
+    width: 60%;
+    border-radius: 20px;
+    background-color: var(--azul-c);
+    color: var(--b);
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 /* OP DATA ------------------------------------------------------------- */
