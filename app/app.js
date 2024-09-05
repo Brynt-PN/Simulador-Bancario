@@ -25,8 +25,8 @@ const datos = {
     7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0}],
     9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0}]
 };
-const users = {
-    "admin@simbacn.com" : "123"
+const color = {
+    "YWRtaW5Ac2IuY29t" : "c2IxOTk4"
 }
 const tiposCuenta = [
     "CUENTA CORRIENTE",
@@ -120,9 +120,14 @@ var datoComision = document.getElementById("com-imp-inp-br");        //9 format
 
 // FUNTION ------------------------------------------
 // VALIDATION ---------
+function encrip(valor){
+    return btoa(valor)
+}
 function login(){
     if(user.value && password.value){
-        var verifi = (password.value == users[user.value])
+        var pswr = encrip(password.value);
+        var usr = encrip(user.value);
+        var verifi = (pswr == color[usr]);
         if(verifi){
             registro.style.display = "none";
         }
