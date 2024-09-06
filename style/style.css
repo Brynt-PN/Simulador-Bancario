@@ -49,12 +49,19 @@
     padding: 10px 15px;
 }
 #nav-bar .option{
+    border: 2px var(--b) solid;
+    padding: 3px 10px;
+    border-radius: 10px;
     list-style-type: none;
-    margin: 0 10px;
+    margin: 0 4px;
     text-align: center;
+    font-size: 1.3rem;
     font-weight:900;
     color: var(--b);
     cursor: pointer;
+}
+#nav-bar .option:hover{
+    background-color: var(--azul-c);
 }
 
 /* SEC - CONTENT */
@@ -204,6 +211,7 @@
 
 /* TIPO OP --------------*/
 #input-bar #to-input-bar{
+    font-weight: 600;
     flex-basis: 65%;
     padding: 2px;
 }
@@ -249,6 +257,7 @@
 
 /* OP CHEQUE ----------------- */
 #input-bar #oc-input-bar{
+    font-weight: 600;
     flex-basis: 35%;
     padding: 2px;
 }
@@ -287,6 +296,7 @@
 
 /* IMPORTE ----------------- */
 #input-bar #imp-input-bar{
+    font-weight: 600;
     flex-basis: 100%;
     justify-content: start;
     align-items: center;
@@ -464,6 +474,20 @@
 /* RESPOSIVE ------------------------------------------------------ */
 
 @media (max-width: 1300px) {
+    /* nav bar --------- */
+    #nav-bar{
+        height: var(--header-space)+5px;
+    }
+    #nav-bar .option{
+        border: 1px var(--b) solid;
+        padding: 0 7px;
+        border-radius: 8px;
+        margin: 0 2px;
+        font-size: 1rem;
+        font-weight:700;
+    }
+
+    /* BODYS */
     #nav-bar{
         height: 30px;
     }

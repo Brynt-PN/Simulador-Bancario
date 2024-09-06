@@ -314,6 +314,8 @@ function updateTableResults(){
 
 // OPERATION ----------
 function saveOP(){
+    // Validamos que el importe nos ea Null
+    datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
     // Identificamos el ID
     var id = datos[listCodigo.value][1][listMoneda.value][0];
     // Identificamos su DEBE y HABER
@@ -328,8 +330,11 @@ function saveOP(){
     // Operamos con el DEBE y HABER
     DebHabList.forEach(ope =>{
         // Aumentamos el valor en DatosDebeHaber
+        console.log("Daro en tabla"+dataDebeHaber[ope][listMoneda.value][1]);
+        console.log("dato capturado"+datoImporte.value);
         dataDebeHaber[ope][listMoneda.value][1] += parseFloat(datoImporte.value);
         var importeDebHab = dataDebeHaber[ope][listMoneda.value][1];
+        console.log("Dato sumado"+importeDebHab);
         // Obetenemos la celda
         var boxDebHab = document.getElementById(dataDebeHaber[ope][listMoneda.value][0]);
         // Atualizamos el valor en Tabla DEBE y HABER
