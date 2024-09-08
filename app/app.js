@@ -284,6 +284,25 @@ function saveDebeHaber(divs){
     boxDebe.textContent = divisaFormat(importeDebe,divs);
     boxHbaer.textContent = divisaFormat(importeHaber,divs);
 }
+function saveCapture(){
+    var captureArea = document.getElementById("body-cajaData");
+    openCaja();
+    html2canvas(captureArea).then(function(canvas) {
+        // Convierte el canvas a un URL en formato de imagen
+        var image = canvas.toDataURL("image/png");
+
+        // Crea un enlace temporal
+        var link = document.createElement('a');
+        link.href = image;
+        link.download = 'captura.png';
+
+        // Automáticamente activa el clic para descargar la imagen
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link); // Elimina el enlace temporal
+    });
+    closeCaja();
+}
 // RESTART --------------------------
 function restarValues(){
     listCodigo.value = '';
