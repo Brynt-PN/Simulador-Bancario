@@ -77,3 +77,14 @@ div,th,td,select,button,input,label,li,h1,h2,h3,h4,p{
     font-size: 5rem;
     color: var(--azul-g);
 }
+@media (max-width: 1300px){
+    #box-logo img{
+        width: 20%;
+    }
+    #box-texto h1{
+        font-size: 10rem;
+    }
+    #box-texto p{
+        font-size: 2rem;
+    }
+}
