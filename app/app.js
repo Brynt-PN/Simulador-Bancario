@@ -1,29 +1,30 @@
 // CONSTANTES ----------------------------------------
 const datos = {
-    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
-    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
-    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
-    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
-    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
-    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false]
+    // CODIGO : [ TIPO DE OP - { MONTOS POR TIPO DE OP } - { COMISIÓN POR DIVISA } - { TIPO DE CAMBIO POR DIVISA } - ES COMPRA O VENTA - ES COMPRA ]
+    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true],
+    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true],
+    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false],
+    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false],
+    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false],
+    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false]
 };
 const color = {
     "YWRtaW5Ac2IuY29t" : "c2IxOTk4"
@@ -152,21 +153,24 @@ const reglaCuadre = {
         "-" : [6010,6011,6013,7010,9005,5017,5016,7015,7030,6016,6012],
         id  : "saldo-efec-PEN",
         salIni : capturePEN,
-        salShow : datoPEN
+        salShow : datoPEN,
+        monto : 0.0
     },
     USD : {
         "+" : [5010,5015,8005,9000,6014,6015,7015,7010,7025],
         "-" : [6010,6011,9005,5017,7030,7005,7020,6013,6016,6012],
         id  : "saldo-efec-USD",
         salIni : captureUSD,
-        salShow : datoUSD
+        salShow : datoUSD,
+        monto : 0.0
     },
     EUR : {
         "+" : [5010,5015,8005,9000,6014,6015,7010,7015,7030,7025],
         "-" : [6010,6011,9005,5017,5016,7030,7005,7020,6016,6012,6013,7030],
         id  : "saldo-efec-EUR",
         salIni : captureEUR,
-        salShow : datoEUR
+        salShow : datoEUR,
+        monto : 0.0
     }
 }
 
@@ -263,6 +267,7 @@ function saveSaldoEfectivo(divs){
     reglaCuadre[divs]["-"].forEach(cod =>{
         importeSaldo = importeSaldo - datos[cod][1][divs][1];
     });
+    reglaCuadre[divs].monto = importeSaldo;
     var saldoEfectivo = document.getElementById(id);
     saldoEfectivo.textContent = divisaFormat(importeSaldo,divs);
     reglaCuadre[divs].salShow.textContent = divisaFormat(importeSaldo,divs);
@@ -431,8 +436,34 @@ function updateTableResults(){
 
 // OPERATION ----------
 function saveOP(){
-    // Validamos que el importe no sea Null
+    // Validamos que el importe no sea Null --------------------------------------------------
     datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
+
+    // Validar saldo para operación-----------------------------------------------------------
+    if(datos[listCodigo.value][5]){ //Evalua si es Compra
+        // Obtener equivalente
+        var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
+        // Verificar si existe saldo suficiente para la operación
+        var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
+        if(isDesAproved){
+            // Detener la operación
+            alert("Sobrino, saldo insuficiente en caja")
+            return '';
+        }
+    }else{
+        // Evaluar si es una operación que resta
+        if(reglaCuadre[listMoneda.value]["-"].includes(parseInt(listCodigo.value))){
+            // Verificar si existe saldo suficiente para la operación
+            var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
+            if(isDesAproved){
+                // Detener la operación
+                alert("Sobrino, saldo insuficiente en caja")
+                return '';
+            }
+        }
+    }
+
+    // Registrar operaciones por tipo en Cuadre de Caja --------------------------------------
     // Identificamos el ID
     var id = datos[listCodigo.value][1][listMoneda.value][0];
     // Aumentamos el valor en DATOS
@@ -442,10 +473,11 @@ function saveOP(){
     var containBox = document.getElementById(id);
     // Actualizamos el valor en Cuadre Caja
     containBox.textContent = divisaFormat(importe, listMoneda.value);
-    // Actualizamos el Saldo Efectivo
+    // Actualizamos el Saldo Efectivo -------------------------------
     saveSaldoEfectivo(listMoneda.value);
-    // Operamos con el DEBE y HABER
+    // Operamos con el DEBE y HABER ---------------------------------
     saveDebeHaber(listMoneda.value);
+
     // Operaciones con Venta y Compra --------------------------------------------------------
     var esVentaCompra = datos[listCodigo.value][4];
     if(esVentaCompra){
@@ -458,13 +490,13 @@ function saveOP(){
         var containBoxPen = document.getElementById(datos[listCodigo.value][1]["PEN"][0]);
         // Actualizamos el valor en Cuadre Caja
         containBoxPen.textContent = divisaFormat(importeEquivalente, "PEN");
-        // Actualizamos el Saldo Efectivo
+        // Actualizamos el Saldo Efectivo --------------------------
         saveSaldoEfectivo("PEN");
-        // Operamos con el DEBE y HABER 
+        // Operamos con el DEBE y HABER ----------------------------
         saveDebeHaber("PEN");
     }
-    // Registramos el Movimiento
+    // Registramos el Movimiento en Tabla Resultado ------------------------------------------
     updateTableResults();
-    // Limpiamos los campos de ingreso
+    // Limpiamos los campos de ingreso -------------------------------------------------------
     restarValues();
 }
