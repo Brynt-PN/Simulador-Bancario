@@ -460,6 +460,11 @@
 }
 #body-cajaData #resoult div{
     flex-basis: 19%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    align-items: center;
     border-bottom: 2px solid var(--b);
     border-top: 2px solid var(--b);
     text-align: center;

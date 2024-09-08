@@ -280,6 +280,19 @@ function saveDebeHaber(divs){
     boxDebe.textContent = divisaFormat(importeDebe,divs);
     boxHbaer.textContent = divisaFormat(importeHaber,divs);
 }
+// RESTART --------------------------
+function restarValues(){
+    listCodigo.value = '';
+    datoTipoTransac.textContent = 'TIPO DE TRANSACCIÓN';
+    listTipoCuenta.value = '';
+    datoNumCuenta.value = '';
+    datoCuentaGira.value = '';
+    datoNumCheque.value = '';
+    listPlaza.value = '';
+    listMoneda.value = '';
+    datoImporte.value = '';
+    datoComision.value = '';
+}
 
 // EJECUTABLES --------------------------------------
 // PASAR DATOS A LISTAS --------------
@@ -428,5 +441,7 @@ function saveOP(){
         saveDebeHaber("PEN");
     }
     // Registramos el Movimiento
-    updateTableResults()
+    updateTableResults();
+    // Limpiamos los campos de ingreso
+    restarValues();
 }
