@@ -1,34 +1,30 @@
 // CONSTANTES ----------------------------------------
 const datos = {
-    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE","HABER"]],
-    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE","HABER"]],
-    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE","HABER"]],
-    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE","HABER"]],
-    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{USD:0.0,EUR:0.0},["HABER"]],
-    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{USD:0.0,EUR:0.0},["HABER"]],
-    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{USD:0.0,EUR:0.0},["HABER"]],
-    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{USD:0.0,EUR:0.0},[""]],
-    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["HABER"]],
-    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]],
-    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{USD:0.0,EUR:0.0},["DEBE"]]
+    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
+    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
+    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
+    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true],
+    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false],
+    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false]
 };
-const dataDebeHaber = {
-    DEBE : {PEN:['debe-PEN',0.0],USD:['debe-USD',0.0],EUR:['debe-EUR',0.0]},
-    HABER : {PEN:['haber-PEN',0.0],USD:['haber-USD',0.0],EUR:['haber-EUR',0.0]}
-}
 const color = {
     "YWRtaW5Ac2IuY29t" : "c2IxOTk4"
 }
@@ -121,6 +117,57 @@ var datoNumCuenta = document.getElementById("nc-to-inp-br");         //4
 var datoCuentaGira = document.getElementById("cg-oc-inp-br");        //5
 var datoNumCheque = document.getElementById("nch-oc-inp-br");        //6
 var datoComision = document.getElementById("com-imp-inp-br");        //9 format
+var capturePEN = document.getElementById("ing-s/");
+var captureUSD = document.getElementById("ing-$");
+var captureEUR = document.getElementById("ing-E");
+
+const dataDebeHaber = {
+        PEN : {
+            DEBE   : [5013,5014,6010,6016,6011,6012,6013,7010,7015,7030,9005,5011,5012],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7005,7020,7025,9000],
+            idDebe : "debe-PEN",
+            idHaber: "haber-PEN",
+            salIni : capturePEN,
+        },
+        USD : {
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
+            idDebe : "debe-USD",
+            idHaber: "haber-USD",
+            salIni : captureUSD,
+        },
+        EUR : {
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
+            idDebe : "debe-EUR",
+            idHaber: "haber-EUR",
+            salIni : captureEUR,
+        }
+    
+}
+const reglaCuadre = {
+    PEN : {
+        "+" : [5010,5015,7005,8005,9000,6014,6015,7020,7025],
+        "-" : [6010,6011,6013,7010,9005,5017,5016,7015,7030,6016,6012],
+        id  : "saldo-efec-PEN",
+        salIni : capturePEN,
+        salShow : datoPEN
+    },
+    USD : {
+        "+" : [5010,5015,8005,9000,6014,6015,7015,7010,7025],
+        "-" : [6010,6011,9005,5017,7030,7005,7020,6013,6016,6012],
+        id  : "saldo-efec-USD",
+        salIni : captureUSD,
+        salShow : datoUSD
+    },
+    EUR : {
+        "+" : [5010,5015,8005,9000,6014,6015,7010,7015,7030,7025],
+        "-" : [6010,6011,9005,5017,5016,7030,7005,7020,6016,6012,6013,7030],
+        id  : "saldo-efec-EUR",
+        salIni : captureEUR,
+        salShow : datoEUR
+    }
+}
 
 // FUNTION ------------------------------------------
 // VALIDATION ---------
@@ -138,7 +185,7 @@ function login(){
         else{
             user.value = "";
             password.value = "";
-            alert("Usuario o Contraseña incorrecto")
+            alert("Usuario o Contraseña incorrecto");
         }
     }
     else{
@@ -180,14 +227,17 @@ function closeCaja(){
     cajaPage.style.display = "none";
 }
 // SHOW ---------------
-function showPEN(value){
-    datoPEN.textContent = value;
+function showPEN(){
+    saveSaldoEfectivo("PEN");
+    saveDebeHaber("PEN"); 
 }
-function showUSD(value){
-    datoUSD.textContent = value;
+function showUSD(){
+    saveSaldoEfectivo("USD");
+    saveDebeHaber("USD");
 }
-function showEUR(value){
-    datoEUR.textContent = value;
+function showEUR(){
+    saveSaldoEfectivo("EUR");
+    saveDebeHaber("EUR");
 }
 function showTransac(value){
     datoTipoTransac.textContent = datos[value][0];
@@ -198,6 +248,37 @@ function showComision(value){
 // SAVE ---------------
 function saveTipoCambio(value,divs,cod){
     datos[cod][3][divs] = value;
+}
+function saveSaldoEfectivo(divs){
+    reglaCuadre[divs].salIni.value == '' ? reglaCuadre[divs].salIni.value = '0.0' : reglaCuadre[divs].salIni.value;
+    var id = reglaCuadre[divs].id;
+    var importeSaldo = parseFloat(reglaCuadre[divs].salIni.value);
+    reglaCuadre[divs]["+"].forEach(cod =>{
+        importeSaldo += datos[cod][1][divs][1];
+    });
+    reglaCuadre[divs]["-"].forEach(cod =>{
+        importeSaldo = importeSaldo - datos[cod][1][divs][1];
+    });
+    var saldoEfectivo = document.getElementById(id);
+    saldoEfectivo.textContent = divisaFormat(importeSaldo,divs);
+    reglaCuadre[divs].salShow.textContent = divisaFormat(importeSaldo,divs);
+}
+function saveDebeHaber(divs){
+    dataDebeHaber[divs].salIni.value == '' ? dataDebeHaber[divs].salIni.value = '0.0' : dataDebeHaber[divs].salIni.value;
+    var idD = dataDebeHaber[divs].idDebe;
+    var idH = dataDebeHaber[divs].idHaber;
+    var importeHaber = parseFloat(dataDebeHaber[divs].salIni.value);
+    var importeDebe = 0.0;
+    dataDebeHaber[divs].DEBE.forEach(cod => {
+        importeDebe += datos[cod][1][divs][1];
+    });
+    dataDebeHaber[divs].HABER.forEach(cod => {
+        importeHaber += datos[cod][1][divs][1];
+    });
+    var boxDebe = document.getElementById(idD);
+    var boxHbaer = document.getElementById(idH);
+    boxDebe.textContent = divisaFormat(importeDebe,divs);
+    boxHbaer.textContent = divisaFormat(importeHaber,divs);
 }
 
 // EJECUTABLES --------------------------------------
@@ -314,12 +395,10 @@ function updateTableResults(){
 
 // OPERATION ----------
 function saveOP(){
-    // Validamos que el importe nos ea Null
+    // Validamos que el importe no sea Null
     datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
     // Identificamos el ID
     var id = datos[listCodigo.value][1][listMoneda.value][0];
-    // Identificamos su DEBE y HABER
-    var DebHabList = datos[listCodigo.value][4]
     // Aumentamos el valor en DATOS
     datos[listCodigo.value][1][listMoneda.value][1] += parseFloat(datoImporte.value);
     var importe = datos[listCodigo.value][1][listMoneda.value][1];
@@ -327,19 +406,27 @@ function saveOP(){
     var containBox = document.getElementById(id);
     // Actualizamos el valor en Cuadre Caja
     containBox.textContent = divisaFormat(importe, listMoneda.value);
+    // Actualizamos el Saldo Efectivo
+    saveSaldoEfectivo(listMoneda.value);
     // Operamos con el DEBE y HABER
-    DebHabList.forEach(ope =>{
-        // Aumentamos el valor en DatosDebeHaber
-        console.log("Daro en tabla"+dataDebeHaber[ope][listMoneda.value][1]);
-        console.log("dato capturado"+datoImporte.value);
-        dataDebeHaber[ope][listMoneda.value][1] += parseFloat(datoImporte.value);
-        var importeDebHab = dataDebeHaber[ope][listMoneda.value][1];
-        console.log("Dato sumado"+importeDebHab);
-        // Obetenemos la celda
-        var boxDebHab = document.getElementById(dataDebeHaber[ope][listMoneda.value][0]);
-        // Atualizamos el valor en Tabla DEBE y HABER
-        boxDebHab.textContent = divisaFormat(importeDebHab,listMoneda.value);
-    })
+    saveDebeHaber(listMoneda.value);
+    // Operaciones con Venta y Compra --------------------------------------------------------
+    var esVentaCompra = datos[listCodigo.value][4];
+    if(esVentaCompra){
+        // Obtenemos el equivalente
+        var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
+        // Aumentamos el valor Soles en DATOS
+        datos[listCodigo.value][1]["PEN"][1] += parseFloat(equivalente);
+        var importeEquivalente = datos[listCodigo.value][1]["PEN"][1]
+        // Obtenemos la celda
+        var containBoxPen = document.getElementById(datos[listCodigo.value][1]["PEN"][0]);
+        // Actualizamos el valor en Cuadre Caja
+        containBoxPen.textContent = divisaFormat(importeEquivalente, "PEN");
+        // Actualizamos el Saldo Efectivo
+        saveSaldoEfectivo("PEN");
+        // Operamos con el DEBE y HABER 
+        saveDebeHaber("PEN");
+    }
     // Registramos el Movimiento
     updateTableResults()
 }

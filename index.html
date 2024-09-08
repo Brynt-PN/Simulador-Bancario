@@ -35,11 +35,11 @@
                 <div id="ing-info-bar" class="box-info">
                     <div><h2>INGRESO INICIAL</h2></div><!-- TITULO -->
                     <!-- SOLES -->
-                    <input id="ing-s/" type="number" step="0.01" placeholder="S/ 000.00" onchange="showPEN(this.value)">
+                    <input id="ing-s/" type="number" step="0.01" placeholder="S/ 000.00" onchange="showPEN()">
                     <!-- DOLARES -->
-                    <input id="ing-$" type="number" step="0.01" placeholder="$ 000.00" onchange="showUSD(this.value)">        
+                    <input id="ing-$" type="number" step="0.01" placeholder="$ 000.00" onchange="showUSD()">        
                     <!-- EUROS -->
-                    <input id="ing-E" type="number" step="0.01" placeholder="000.00 €" onchange="showEUR(this.value)">            
+                    <input id="ing-E" type="number" step="0.01" placeholder="000.00 €" onchange="showEUR()">            
                 </div>
                 <!-- TIPO CAMBIO ------------->
                 <div id="tc-info-bar" class="box-info">
@@ -72,16 +72,13 @@
                     <div><h2>SALDO DE CAJA</h2></div><!-- TITULO -->
                     <!-- DATOS -->
                     <div class="row">
-                        <p>S/ </p>
                         <div><p id="sal-s/">000.00</p></div>
                     </div>
                     <div class="row">
-                        <p>$ </p>
                         <div><p id="sal-$">000.00</p></div>
                     </div>
                     <div class="row">
                         <div><p id="sal-E">000.00</p></div>
-                        <p> €</p>
                     </div>
                 </div>
             </Section>
@@ -242,9 +239,9 @@
             </table>
             <div id="resoult">
                 <div>SALDO EFECTIVO</div>
-                <div>S/ -</div>
-                <div>$ -</div>
-                <div>- €</div>
+                <div id="saldo-efec-PEN">S/ -</div>
+                <div id="saldo-efec-USD">$ -</div>
+                <div id="saldo-efec-EUR">- €</div>
             </div>
         </section>
     </main>
