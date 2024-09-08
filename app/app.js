@@ -81,6 +81,7 @@ const plazas = [
 
 // PESTAÑAS ------------------------------------------
 var registro = document.getElementById("body-user");
+var logo = document.getElementById("box-logo");
 var operacionesPage = document.getElementById("body-opData");
 var codigosPage = document.getElementById("body-codData");
 var cajaPage = document.getElementById("body-cajaData");
@@ -181,6 +182,7 @@ function login(){
         var verifi = (pswr == color[usr]);
         if(verifi){
             registro.style.display = "none";
+            logo.style.display = "flex";
         }
         else{
             user.value = "";
@@ -209,6 +211,7 @@ function divisaFormat(value, divs){
 // OPEN ---------------
 function openOperaciones(){
     operacionesPage.style.display = "block";
+    logo.style.display = "none";
 }
 function openCodigos(){
     codigosPage.style.display = "block";
@@ -219,6 +222,7 @@ function openCaja(){
 // CLOSE --------------
 function closeOperaciones(){
     operacionesPage.style.display = "none";
+    logo.style.display = "flex";
 }
 function closeCodigos(){
     codigosPage.style.display = "none";

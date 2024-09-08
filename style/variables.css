@@ -53,3 +53,27 @@ div,th,td,select,button,input,label,li,h1,h2,h3,h4,p{
 .row{
     display: flex;
 }
+
+#box-logo{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+#box-logo img{
+    width: 30%;
+}
+#box-texto{
+    margin-left: 20px;
+    text-align: center;
+}
+#box-texto h1{
+    font-size: 20rem;
+    color: var(--b);
+    margin-bottom: 0;
+    line-height: 0.8;
+}
+#box-texto p{
+    font-size: 5rem;
+    color: var(--azul-g);
+}
