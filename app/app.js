@@ -29,6 +29,7 @@ const datos = {
 const celdasOcultas = [];
 const color = {
     "YWRtaW5Ac2IuY29t" : "c2IxOTk4",
+    "Q0JDNTAw" : "MTAyMDMw",
     "cmV2ZXJzYQ==" : "MTE0Nzg="
 }
 const tiposCuenta = [
