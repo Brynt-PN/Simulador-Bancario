@@ -26,7 +26,7 @@ const datos = {
     7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
     9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011]
 };
-const celdasOcultas = [5010];
+const celdasOcultas = [];
 const color = {
     "YWRtaW5Ac2IuY29t" : "c2IxOTk4",
     "cmV2ZXJzYQ==" : "MTE0Nzg="
@@ -521,7 +521,7 @@ function saveOP(){
 // REVERSA ------------------------------------------------------------------------------------------------------------
 function reversaOP(){
     var cod = "cmV2ZXJzYQ==";
-    var pswr = encrip(prompt("CLAVE DE SUERVISOR"));
+    var pswr = encrip(prompt("CLAVE DE SUPERVISOR"));
     if(pswr){
         var verifi = (pswr == color[cod]);
         if(verifi){
