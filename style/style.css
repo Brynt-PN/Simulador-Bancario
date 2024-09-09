@@ -159,13 +159,19 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
 }
 
 /* SEC - INFO-BAR --------------------------*/
+
+#info-bar.row.sec-ventana{
+    justify-content: center;
+}
+
+/* INGRESO ---------*/
 #info-bar .box-info{
-    flex-basis: 20%;
+    flex-basis: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-/* INGRESO ---------*/
 #ing-info-bar input{
     width: 70%;
     padding: 5px;
@@ -177,9 +183,9 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
 }
 /* TIPO CAMPIO --- */
 #info-bar #tc-info-bar{
-    flex-basis: 60%;
+    flex-basis: 70%;
     border-left: 2px solid var(--gris-o);
-    border-right: 2px solid var(--gris-o);
+    /* border-right: 2px solid var(--gris-o); */
 }
 #tc-info-bar .row{
     width: 95%;
@@ -191,6 +197,9 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
     font-weight: 700;
     padding: 5px;
 }
+.text-tipocambio{
+    flex-basis: 10%;
+}
 #tc-info-bar .row input{
     flex-basis: 25%;
     text-align: center;
@@ -198,6 +207,9 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
     padding: 5px;
 }
 /* SALDO ------- */
+#sal-info-bar.box-info{
+    display: none;
+}
 #sal-info-bar .row{
     width: 95%;
     justify-content: center;
@@ -514,21 +526,29 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
         display: none;
     }
 
-    #info-bar .box-info{
-        flex-basis: 30%;
+    #info-bar.row.sec-ventana{
+        display: flex;
+        justify-content: space-between;
     }
-
+    #info-bar #ing-info-bar.box-info{
+        max-width: 25%;
+    }
     #info-bar #tc-info-bar.box-info{
-        max-width: 40%;
+        min-width: 75%;
+        justify-content: center;
     }
-    #tc-info-bar .row{
-        width: 80%;
+    #info-bar #tc-info-bar.box-info .row{
+        width: 100%;
+        justify-content: space-between;
     }
-    #tc-info-bar .row p{
-        flex-basis: 27.5%;
+    #info-bar #tc-info-bar.box-info .row input{
+        max-width: 18%;
+        margin-right: 5px;
     }
-    #tc-info-bar .row input{
-        max-width: 27.5%;
+    .text-tipocambio{
+        max-width: 15%;
+        font-size: 1rem;
+        margin-right: 5px;
     }
 
     #input-bar.row.sec-ventana{
