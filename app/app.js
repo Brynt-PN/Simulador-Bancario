@@ -257,8 +257,20 @@ function showComision(value){
     datoComision.value = datos[listCodigo.value][2][value];
 }
 // SAVE ---------------
-function saveTipoCambio(value,divs,cod){
+function saveTipoCambio(value,divs,cod,id){
     datos[cod][3][divs] = value;
+    var boxtc = document.getElementById(id);
+    if (value%1 == 0) {
+        boxtc.value = value+'.00';
+    }else{
+        var decimales = value.toString().split('.')[1].length;
+        if(decimales == 1){
+            boxtc.value = value+'0';
+        }
+        if(decimales == 2){
+            boxtc.value = value;
+        }
+    }
 }
 function saveSaldoEfectivo(divs){
     reglaCuadre[divs].salIni.value == '' ? reglaCuadre[divs].salIni.value = '0.0' : reglaCuadre[divs].salIni.value;
