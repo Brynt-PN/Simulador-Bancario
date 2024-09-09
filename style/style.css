@@ -320,14 +320,20 @@
     margin-right: 5px;
 }
 #imp-input-bar button{
-    flex-basis: 22.5%;
+    flex-basis: 20%;
     padding: 5px;
     font-weight: 600;
     background-color: var(--azul-o);
     color: var(--b);
     border-radius: 5px;
-    margin-right: 1px;
+    margin-right: 5px;
     cursor: pointer;
+}
+#imp-input-bar button#boton-grabar:hover{
+    background-color: var(--azul-c);
+}
+#imp-input-bar button#boton-reversa:hover{
+    background-color: var(--alerta)
 }
 
 /* SEC - OUDTPUT-BAR --------------------------*/
