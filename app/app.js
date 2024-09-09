@@ -462,7 +462,7 @@ function saveOP(){
         var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
         if(isDesAproved){
             // Detener la operación
-            alert("SALDO INSUFICIENTE EN CAJA")
+            alert("SALDO INSUFICIENTE. REVICE SALDOS DE CAJA");
             restarValues();
             return '';
         }
@@ -473,7 +473,7 @@ function saveOP(){
             var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
             if(isDesAproved){
                 // Detener la operación
-                alert("SALDO INSUFICIENTE EN CAJA")
+                alert("SALDO INSUFICIENTE. REVICE SALDOS DE CAJA");
                 restarValues();
                 return '';
             }
@@ -537,7 +537,7 @@ function reversaOP(){
                 var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
                 if(isDesAproved){
                     // Detener la operación
-                    alert("SALDO INSUFICIENTE EN CAJA");
+                    alert("SALDO INSUFICIENTE. REVICE SALDOS DE CAJA");
                     restarValues();
                     return '';
                 }
@@ -548,7 +548,7 @@ function reversaOP(){
                     var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
                     if(isDesAproved){
                         // Detener la operación
-                        alert("SALDO INSUFICIENTE EN CAJA");
+                        alert("SALDO INSUFICIENTE. REVICE SALDOS DE CAJA");
                         restarValues();
                         return '';
                     }
