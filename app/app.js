@@ -509,6 +509,7 @@ function saveOP(){
     // Limpiamos los campos de ingreso -------------------------------------------------------
     restarValues();
 }
+
 // REVERSA ------------------------------------------------------------------------------------------------------------
 function reversaOP(){
     // Invertir código

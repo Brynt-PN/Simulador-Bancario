@@ -320,7 +320,7 @@
     margin-right: 5px;
 }
 #imp-input-bar button{
-    flex-basis: 25%;
+    flex-basis: 22.5%;
     padding: 5px;
     font-weight: 600;
     background-color: var(--azul-o);
