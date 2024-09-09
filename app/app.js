@@ -26,9 +26,10 @@ const datos = {
     7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
     9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011]
 };
-const celdasOcultas = [];
+const celdasOcultas = [5010];
 const color = {
-    "YWRtaW5Ac2IuY29t" : "c2IxOTk4"
+    "YWRtaW5Ac2IuY29t" : "c2IxOTk4",
+    "cmV2ZXJzYQ==" : "MTE0Nzg="
 }
 const tiposCuenta = [
     "CUENTA CORRIENTE",
@@ -178,7 +179,7 @@ const reglaCuadre = {
 // FUNTION ------------------------------------------
 // VALIDATION ---------
 function encrip(valor){
-    return btoa(valor)
+    return btoa(valor);
 }
 function login(){
     if(user.value && password.value){
@@ -257,6 +258,7 @@ function showComision(value){
 // SAVE ---------------
 function saveTipoCambio(value,divs,cod){
     datos[cod][3][divs] = value;
+    // Añadir venta a compra y compra a venta en el tipo de cambio de codigo inverso
 }
 function saveSaldoEfectivo(divs){
     reglaCuadre[divs].salIni.value == '' ? reglaCuadre[divs].salIni.value = '0.0' : reglaCuadre[divs].salIni.value;
@@ -331,6 +333,10 @@ Object.keys(datos).forEach(codigo => {
     option.textContent = codigo;
 
     listCodigo.appendChild(option);
+
+    if(celdasOcultas.includes(parseInt(codigo))){
+        option.style.display = "none";
+    }
 });
 tiposCuenta.forEach(cuenta => {
     const option = document.createElement('option');
@@ -456,7 +462,8 @@ function saveOP(){
         var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
         if(isDesAproved){
             // Detener la operación
-            alert("Sobrino, saldo insuficiente en caja")
+            alert("SALDO INSUFICIENTE EN CAJA")
+            restarValues();
             return '';
         }
     }else{
@@ -466,7 +473,8 @@ function saveOP(){
             var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
             if(isDesAproved){
                 // Detener la operación
-                alert("Sobrino, saldo insuficiente en caja")
+                alert("SALDO INSUFICIENTE EN CAJA")
+                restarValues();
                 return '';
             }
         }
@@ -512,74 +520,88 @@ function saveOP(){
 
 // REVERSA ------------------------------------------------------------------------------------------------------------
 function reversaOP(){
-    // Invertir código
-    listCodigo.value = datos[listCodigo.value][6];
+    var cod = "cmV2ZXJzYQ==";
+    var pswr = encrip(prompt("CLAVE DE SUERVISOR"));
+    if(pswr){
+        var verifi = (pswr == color[cod]);
+        if(verifi){
+            // Invertir código
+            listCodigo.value = datos[listCodigo.value][6];
 
-    // Validamos que el importe no sea Null --------------------------------------------------
-    datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
+            // Validamos que el importe no sea Null --------------------------------------------------
+            datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
 
-    // Validar saldo para operación-----------------------------------------------------------
-    if(datos[listCodigo.value][5]){ //Evalua si es Compra
-        // Obtener equivalente
-        var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
-        // Verificar si existe saldo suficiente para la operación
-        var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
-        if(isDesAproved){
-            // Detener la operación
-            alert("Sobrino, saldo insuficiente en caja")
-            return '';
+            // Validar saldo para operación-----------------------------------------------------------
+            if(datos[listCodigo.value][5]){ //Evalua si es Compra
+                // Obtener equivalente
+                var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
+                // Verificar si existe saldo suficiente para la operación
+                var isDesAproved = parseFloat(equivalente) > reglaCuadre["PEN"].monto;
+                if(isDesAproved){
+                    // Detener la operación
+                    alert("SALDO INSUFICIENTE EN CAJA");
+                    restarValues();
+                    return '';
+                }
+            }else{
+                // Evaluar si es una operación que resta
+                if(reglaCuadre[listMoneda.value]["-"].includes(parseInt(listCodigo.value))){
+                    // Verificar si existe saldo suficiente para la operación
+                    var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
+                    if(isDesAproved){
+                        // Detener la operación
+                        alert("SALDO INSUFICIENTE EN CAJA");
+                        restarValues();
+                        return '';
+                    }
+                }
+            }
+
+            // Registrar operaciones por tipo en Cuadre de Caja --------------------------------------
+            // Identificamos el ID
+            var id = datos[listCodigo.value][1][listMoneda.value][0];
+            // Aumentamos el valor en DATOS
+            datos[listCodigo.value][1][listMoneda.value][1] += parseFloat(datoImporte.value);
+            var importe = datos[listCodigo.value][1][listMoneda.value][1];
+            // Obtenemos la celda
+            var containBox = document.getElementById(id);
+            // Actualizamos el valor en Cuadre Caja
+            containBox.textContent = divisaFormat(importe, listMoneda.value);
+            // Actualizamos el Saldo Efectivo -------------------------------
+            saveSaldoEfectivo(listMoneda.value);
+            // Operamos con el DEBE y HABER ---------------------------------
+            saveDebeHaber(listMoneda.value);
+
+            // Operaciones con Venta y Compra --------------------------------------------------------
+            var esVentaCompra = datos[listCodigo.value][4];
+            if(esVentaCompra){
+                // Obtenemos el equivalente
+                var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
+                // Aumentamos el valor Soles en DATOS
+                datos[listCodigo.value][1]["PEN"][1] += parseFloat(equivalente);
+                var importeEquivalente = datos[listCodigo.value][1]["PEN"][1]
+                // Obtenemos la celda
+                var containBoxPen = document.getElementById(datos[listCodigo.value][1]["PEN"][0]);
+                // Actualizamos el valor en Cuadre Caja
+                containBoxPen.textContent = divisaFormat(importeEquivalente, "PEN");
+                // Actualizamos el Saldo Efectivo --------------------------
+                saveSaldoEfectivo("PEN");
+                // Operamos con el DEBE y HABER ----------------------------
+                saveDebeHaber("PEN");
+            }
+
+            // Ingresar Nuevo código y texto
+            var codigo = 1000;
+            var texto = "REVERSA DE OPERACIÓN"
+            // Registramos el Movimiento en Tabla Resultado ------------------------------------------
+            updateTableResults(codigo,texto);
+            // Limpiamos los campos de ingreso -------------------------------------------------------
+            restarValues();
+        }else{
+            alert("CONTRASEÑA INCORRECTA");
         }
     }else{
-        // Evaluar si es una operación que resta
-        if(reglaCuadre[listMoneda.value]["-"].includes(parseInt(listCodigo.value))){
-            // Verificar si existe saldo suficiente para la operación
-            var isDesAproved = parseFloat(datoImporte.value) > reglaCuadre[listMoneda.value].monto;
-            if(isDesAproved){
-                // Detener la operación
-                alert("Sobrino, saldo insuficiente en caja")
-                return '';
-            }
-        }
+        alert("INGRESA LA CLAVE DE SUPERVISOR PARA REVERTIR")
     }
-
-    // Registrar operaciones por tipo en Cuadre de Caja --------------------------------------
-    // Identificamos el ID
-    var id = datos[listCodigo.value][1][listMoneda.value][0];
-    // Aumentamos el valor en DATOS
-    datos[listCodigo.value][1][listMoneda.value][1] += parseFloat(datoImporte.value);
-    var importe = datos[listCodigo.value][1][listMoneda.value][1];
-    // Obtenemos la celda
-    var containBox = document.getElementById(id);
-    // Actualizamos el valor en Cuadre Caja
-    containBox.textContent = divisaFormat(importe, listMoneda.value);
-    // Actualizamos el Saldo Efectivo -------------------------------
-    saveSaldoEfectivo(listMoneda.value);
-    // Operamos con el DEBE y HABER ---------------------------------
-    saveDebeHaber(listMoneda.value);
-
-    // Operaciones con Venta y Compra --------------------------------------------------------
-    var esVentaCompra = datos[listCodigo.value][4];
-    if(esVentaCompra){
-        // Obtenemos el equivalente
-        var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
-        // Aumentamos el valor Soles en DATOS
-        datos[listCodigo.value][1]["PEN"][1] += parseFloat(equivalente);
-        var importeEquivalente = datos[listCodigo.value][1]["PEN"][1]
-        // Obtenemos la celda
-        var containBoxPen = document.getElementById(datos[listCodigo.value][1]["PEN"][0]);
-        // Actualizamos el valor en Cuadre Caja
-        containBoxPen.textContent = divisaFormat(importeEquivalente, "PEN");
-        // Actualizamos el Saldo Efectivo --------------------------
-        saveSaldoEfectivo("PEN");
-        // Operamos con el DEBE y HABER ----------------------------
-        saveDebeHaber("PEN");
-    }
-
-    // Ingresar Nuevo código y texto
-    var codigo = 1000;
-    var texto = "REVERSA DE OPERACIÓN"
-    // Registramos el Movimiento en Tabla Resultado ------------------------------------------
-    updateTableResults(codigo,texto);
-    // Limpiamos los campos de ingreso -------------------------------------------------------
-    restarValues();
+    
 }
