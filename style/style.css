@@ -571,3 +571,88 @@
         overflow: scroll;
     }
 }
+@media (max-height: 1000px) {
+    /* nav bar --------- */
+    #nav-bar{
+        height: var(--header-space)+5px;
+    }
+    #nav-bar .option{
+        border: 1px var(--b) solid;
+        padding: 0 7px;
+        border-radius: 8px;
+        margin: 0 2px;
+        font-size: 1rem;
+        font-weight:700;
+    }
+
+    /* BODYS */
+    #nav-bar{
+        height: 30px;
+    }
+
+    #state-bar{
+        display: none;
+    }
+
+    #info-bar .box-info{
+        flex-basis: 30%;
+    }
+
+    #info-bar #tc-info-bar.box-info{
+        max-width: 40%;
+    }
+    #tc-info-bar .row{
+        width: 80%;
+    }
+    #tc-info-bar .row p{
+        flex-basis: 27.5%;
+    }
+    #tc-info-bar .row input{
+        max-width: 27.5%;
+    }
+
+    #input-bar.row.sec-ventana{
+        display: block;
+    }
+    #input-bar #box-codigo{
+        flex-basis: 40%;
+    }
+    #input-bar label[for='pl-oc-inp-br']{
+        flex-basis: 10%;
+        margin-left: 20px;
+    }
+    #input-bar select[name='pl-oc-inp-br']{
+        flex-basis: 30%;
+    }
+    #input-bar #imp-input-bar label{
+        text-align: center;
+    }
+
+    #oudtpu-bar th{
+        font-size: 0.7rem;
+    }
+    #oudtpu-bar td{
+        font-size: 0.7rem;
+    }
+    #oudtpu-bar div{
+        width: 100%;
+        max-height: 40vh;
+        overflow: scroll;
+    }
+
+    #body-codData{
+        width: 80%;
+        height: 80%;
+        top: 10%;
+        left: 10%;
+        overflow: scroll;
+    }
+
+    #body-cajaData{
+        width: 80%;
+        height: 90%;
+        top: 5%;
+        left: 10%;
+        overflow: scroll;
+    }
+}
