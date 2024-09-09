@@ -1,30 +1,30 @@
 // CONSTANTES ----------------------------------------
 const datos = {
-    // CODIGO : [ TIPO DE OP - { MONTOS POR TIPO DE OP } - { COMISIÓN POR DIVISA } - { TIPO DE CAMBIO POR DIVISA } - ES COMPRA O VENTA - ES COMPRA - CODIGO REVERSA]
-    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true,7005],
-    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true,7020],
-    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false,7010],
-    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false,7015],
-    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011],
-    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,6011]
+    // CODIGO : [ TIPO DE OP - { MONTOS POR TIPO DE OP } - { COMISIÓN POR DIVISA } - { TIPO DE CAMBIO POR DIVISA } - ES COMPRA O VENTA - ES COMPRA - CODIGO REVERSA - (+1 o -1)]
+    5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5013: ["DEPÓSITO OB MP", {PEN: ["5013-PEN", 0.0], USD: ["5013-USD", 0.0], EUR: ["5013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5014: ["DEPÓSITO OB OP", {PEN: ["5014-PEN", 0.0], USD: ["5014-USD", 0.0], EUR: ["5014-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6010: ["CHEQUE PAGADO", {PEN: ["6010-PEN", 0.0], USD: ["6010-USD", 0.0], EUR: ["6010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6016: ["PAGO PARCIAL DE CHEQUE", {PEN: ["6016-PEN", 0.0], USD: ["6016-USD", 0.0], EUR: ["6016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6015: ["CHEQUE CERTIFICADO", {PEN: ["6015-PEN", 0.0], USD: ["6015-USD", 0.0], EUR: ["6015-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6014: ["CHEQUE DE GERENCIA", {PEN: ["6014-PEN", 0.0], USD: ["6014-USD", 0.0], EUR: ["6014-EUR", 0.0]},{PEN:15,USD:5},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6011: ["RETIRO DE EFECTIVO", {PEN: ["6011-PEN", 0.0], USD: ["6011-USD", 0.0], EUR: ["6011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5016: ["CUOTA TARJETA", {PEN: ["5016-PEN", 0.0], USD: ["5016-USD", 0.0], EUR: ["5016-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5017: ["CUOTA PRÉSTAMO", {PEN: ["5017-PEN", 0.0], USD: ["5017-USD", 0.0], EUR: ["5017-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    5015: ["PAGO DE SERVICIO", {PEN: ["5015-PEN", 0.0], USD: ["5015-USD", 0.0], EUR: ["5015-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6012: ["PRÉSTAMO EFECTIVO", {PEN: ["6012-PEN", 0.0], USD: ["6012-USD", 0.0], EUR: ["6012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    6013: ["RETIRO DE TARJETA", {PEN: ["6013-PEN", 0.0], USD: ["6013-USD", 0.0], EUR: ["6013-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    7010: ["COMPRA", {PEN: ["7010-PEN", 0.0], USD: ["7010-USD", 0.0], EUR: ["7010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true,-1],
+    7015: ["COMPRA ESPECIAL", {PEN: ["7015-PEN", 0.0], USD: ["7015-USD", 0.0], EUR: ["7015-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,true,-1],
+    7005: ["VENTA", {PEN: ["7005-PEN", 0.0], USD: ["7005-USD", 0.0], EUR: ["7005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false,-1],
+    7020: ["VENTA ESPECIAL", {PEN: ["7020-PEN", 0.0], USD: ["7020-USD", 0.0], EUR: ["7020-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},true,false,-1],
+    8005: ["OTROS", {PEN: ["8005-PEN", 0.0], USD: ["8005-USD", 0.0], EUR: ["8005-EUR", 0.0]},{PEN:3.50,USD:2},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    7025: ["SOBRANTE DE CAJA", {PEN: ["7025-PEN", 0.0], USD: ["7025-USD", 0.0], EUR: ["7025-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    9000: ["INGRESO DE BOVEDA", {PEN: ["9000-PEN", 0.0], USD: ["9000-USD", 0.0], EUR: ["9000-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    7030: ["FALTANTE DE CAJA", {PEN: ["7030-PEN", 0.0], USD: ["7030-USD", 0.0], EUR: ["7030-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
+    9005: ["EGRESO A BOVEDA", {PEN: ["9005-PEN", 0.0], USD: ["9005-USD", 0.0], EUR: ["9005-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1]
 };
 const celdasOcultas = [];
 const color = {
@@ -127,22 +127,22 @@ var captureEUR = document.getElementById("ing-E");
 
 const dataDebeHaber = {
         PEN : {
-            DEBE   : [5013,5014,6010,6016,6011,6012,6013,7010,7015,7030,9005,5011,5012],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7005,7020,7025,9000],
+            DEBE   : [5013,5014,6010,6016,6011,6012,6013,7010,7015,7030,9005,5011,5012,1011],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7005,7020,7025,9000,1011],
             idDebe : "debe-PEN",
             idHaber: "haber-PEN",
             salIni : capturePEN,
         },
         USD : {
-            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005,1011],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000,1011],
             idDebe : "debe-USD",
             idHaber: "haber-USD",
             salIni : captureUSD,
         },
         EUR : {
-            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005,1011],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000,1011],
             idDebe : "debe-EUR",
             idHaber: "haber-EUR",
             salIni : captureEUR,
@@ -525,8 +525,6 @@ function reversaOP(){
     if(pswr){
         var verifi = (pswr == color[cod]);
         if(verifi){
-            // Invertir código
-            listCodigo.value = datos[listCodigo.value][6];
 
             // Validamos que el importe no sea Null --------------------------------------------------
             datoImporte.value == '' ? datoImporte.value = '0.0' : datoImporte.value;
@@ -561,7 +559,7 @@ function reversaOP(){
             // Identificamos el ID
             var id = datos[listCodigo.value][1][listMoneda.value][0];
             // Aumentamos el valor en DATOS
-            datos[listCodigo.value][1][listMoneda.value][1] += parseFloat(datoImporte.value);
+            datos[listCodigo.value][1][listMoneda.value][1] += parseFloat(datoImporte.value) * datos[listCodigo.value][6];
             var importe = datos[listCodigo.value][1][listMoneda.value][1];
             // Obtenemos la celda
             var containBox = document.getElementById(id);
@@ -578,7 +576,7 @@ function reversaOP(){
                 // Obtenemos el equivalente
                 var equivalente = datoImporte.value * datos[listCodigo.value][3][listMoneda.value];
                 // Aumentamos el valor Soles en DATOS
-                datos[listCodigo.value][1]["PEN"][1] += parseFloat(equivalente);
+                datos[listCodigo.value][1]["PEN"][1] += parseFloat(equivalente) * datos[listCodigo.value][6];
                 var importeEquivalente = datos[listCodigo.value][1]["PEN"][1]
                 // Obtenemos la celda
                 var containBoxPen = document.getElementById(datos[listCodigo.value][1]["PEN"][0]);

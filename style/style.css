@@ -153,6 +153,11 @@
     border-bottom: 2px solid var(--gris-o);    
 }
 
+/* IMPUTS Y SELECTS -------------------------------- */
+input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu td{
+    border-radius: 10px;
+}
+
 /* SEC - INFO-BAR --------------------------*/
 #info-bar .box-info{
     flex-basis: 20%;
