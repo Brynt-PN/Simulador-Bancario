@@ -466,6 +466,14 @@ function saveOP(){
             restarValues();
             return '';
         }
+        // Verificar si esta comprando SOLES
+        if(listMoneda.value == "PEN"){
+            console.log("Se esta evaluando si es compra");
+            // Detener la operación
+            alert("MONEDA INCORRECTA, NO PUEDES HACER UNA COMPRA EN SOLES");
+            restarValues();
+            return '';
+        }
     }else{
         // Evaluar si es una operación que resta
         if(reglaCuadre[listMoneda.value]["-"].includes(parseInt(listCodigo.value))){
@@ -477,6 +485,14 @@ function saveOP(){
                 restarValues();
                 return '';
             }
+        }
+        // Verificar si esta vendiendo SOLES
+        var esVenta = datos[listCodigo.value][4];
+        if(esVenta && listMoneda.value == "PEN"){
+            // Detener la operación
+            alert("MONEDA INCORRECTA, NO PUEDES HACER UNA VENTA EN SOLES");
+            restarValues();
+            return '';
         }
     }
 
@@ -541,6 +557,13 @@ function reversaOP(){
                     restarValues();
                     return '';
                 }
+                // Verificar si esta comprando SOLES
+                if(listMoneda.value == "PEN"){
+                    // Detener la operación
+                    alert("MONEDA INCORRECTA, NO PUEDES REVERTIR UNA COMPRA EN SOLES");
+                    restarValues();
+                    return '';
+                }
             }else{
                 // Evaluar si es una operación que resta
                 if(reglaCuadre[listMoneda.value]["-"].includes(parseInt(listCodigo.value))){
@@ -552,6 +575,14 @@ function reversaOP(){
                         restarValues();
                         return '';
                     }
+                }
+                // Verificar si esta vendiendo SOLES
+                var esVenta = datos[listCodigo.value][4];
+                if(esVenta && listMoneda.value == "PEN"){
+                    // Detener la operación
+                    alert("MONEDA INCORRECTA, NO PUEDES REVERTIR UNA VENTA EN SOLES");
+                    restarValues();
+                    return '';
                 }
             }
 
