@@ -258,7 +258,6 @@ function showComision(value){
 // SAVE ---------------
 function saveTipoCambio(value,divs,cod){
     datos[cod][3][divs] = value;
-    // Añadir venta a compra y compra a venta en el tipo de cambio de codigo inverso
 }
 function saveSaldoEfectivo(divs){
     reglaCuadre[divs].salIni.value == '' ? reglaCuadre[divs].salIni.value = '0.0' : reglaCuadre[divs].salIni.value;
