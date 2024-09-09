@@ -1,6 +1,6 @@
 // CONSTANTES ----------------------------------------
 const datos = {
-    // CODIGO : [ TIPO DE OP - { MONTOS POR TIPO DE OP } - { COMISIÓN POR DIVISA } - { TIPO DE CAMBIO POR DIVISA } - ES COMPRA O VENTA - ES COMPRA - CODIGO REVERSA - (+1 o -1)]
+    // CODIGO : [ TIPO DE OP - { MONTOS POR TIPO DE OP } - { COMISIÓN POR DIVISA } - { TIPO DE CAMBIO POR DIVISA } - ES COMPRA O VENTA - ES COMPRA - VALOR DE REVERSA]
     5010: ["DEPÓSITO EN EF.", {PEN: ["5010-PEN", 0.0], USD: ["5010-USD", 0.0], EUR: ["5010-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
     5011: ["DEPÓSITO MB MP", {PEN: ["5011-PEN", 0.0], USD: ["5011-USD", 0.0], EUR: ["5011-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
     5012: ["DEPÓSITO MB OP", {PEN: ["5012-PEN", 0.0], USD: ["5012-USD", 0.0], EUR: ["5012-EUR", 0.0]},{PEN:0.0,USD:0.0},{PEN:0.0,USD:0.0,EUR:0.0},false,false,-1],
@@ -127,22 +127,22 @@ var captureEUR = document.getElementById("ing-E");
 
 const dataDebeHaber = {
         PEN : {
-            DEBE   : [5013,5014,6010,6016,6011,6012,6013,7010,7015,7030,9005,5011,5012,1011],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7005,7020,7025,9000,1011],
+            DEBE   : [5013,5014,6010,6016,6011,6012,6013,7010,7015,7030,9005,5011,5012],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7005,7020,7025,9000],
             idDebe : "debe-PEN",
             idHaber: "haber-PEN",
             salIni : capturePEN,
         },
         USD : {
-            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005,1011],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000,1011],
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
             idDebe : "debe-USD",
             idHaber: "haber-USD",
             salIni : captureUSD,
         },
         EUR : {
-            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005,1011],
-            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000,1011],
+            DEBE   : [5011,5012,5013,5014,6010,6016,6011,6012,6013,7005,7020,7030,9005],
+            HABER  : [5010,5011,5012,5013,5014,6015,6014,5016,5017,5015,7010,7015,7025,9000],
             idDebe : "debe-EUR",
             idHaber: "haber-EUR",
             salIni : captureEUR,
@@ -590,7 +590,7 @@ function reversaOP(){
 
             // Ingresar Nuevo código y texto
             var codigo = 1000;
-            var texto = "REVERSA DE OPERACIÓN"
+            var texto = "REVERSA "+datoTipoTransac.textContent;
             // Registramos el Movimiento en Tabla Resultado ------------------------------------------
             updateTableResults(codigo,texto);
             // Limpiamos los campos de ingreso -------------------------------------------------------
