@@ -326,6 +326,8 @@
     background-color: var(--azul-o);
     color: var(--b);
     border-radius: 5px;
+    margin-right: 1px;
+    cursor: pointer;
 }
 
 /* SEC - OUDTPUT-BAR --------------------------*/
