@@ -619,21 +619,29 @@ input, select, #tipo-transac-p, #tabla-oudtpu, #tabla-oudtpu th, #tabla-oudtpu t
         display: none;
     }
 
-    #info-bar .box-info{
-        flex-basis: 30%;
+    #info-bar.row.sec-ventana{
+        display: flex;
+        justify-content: space-between;
     }
-
+    #info-bar #ing-info-bar.box-info{
+        max-width: 25%;
+    }
     #info-bar #tc-info-bar.box-info{
-        max-width: 40%;
+        min-width: 75%;
+        justify-content: center;
     }
-    #tc-info-bar .row{
-        width: 80%;
+    #info-bar #tc-info-bar.box-info .row{
+        width: 100%;
+        justify-content: space-between;
     }
-    #tc-info-bar .row p{
-        flex-basis: 27.5%;
+    #info-bar #tc-info-bar.box-info .row input{
+        max-width: 18%;
+        margin-right: 5px;
     }
-    #tc-info-bar .row input{
-        max-width: 27.5%;
+    .text-tipocambio{
+        max-width: 15%;
+        font-size: 1rem;
+        margin-right: 5px;
     }
 
     #input-bar.row.sec-ventana{
