@@ -28,9 +28,14 @@ const datos = {
 };
 const celdasOcultas = [8005];
 const color = {
-    "YWRtaW5Ac2IuY29t" : "c2IxOTk4",
-    "Q0JDNTAw" : "MTAyMDMw",
-    "cmV2ZXJzYQ==" : "MTE0Nzg="
+    "YWRtaW5Ac2IuY29t" : ["c2IxOTk4",true,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTAw" : ["MTAyMDMw"],
+    "cmV2ZXJzYQ==" : ["MTE0Nzg=",true,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTEw" : ["MTAyMDQw",true,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTIw" : ["MTAyMDUw",false,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTMw" : ["MTAyMDYw",false,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTQw" : ["MTAyMDcw",false,"INGRESO NO AUTORIZADO"],
+    "Q0JDNTUw" : ["MTAyMDgw",false,"INGRESO NO AUTORIZADO"],
 }
 const tiposCuenta = [
     "CUENTA CORRIENTE",
@@ -186,10 +191,17 @@ function login(){
     if(user.value && password.value){
         var pswr = encrip(password.value);
         var usr = encrip(user.value);
-        var verifi = (pswr == color[usr]);
+        var verifi = (pswr == color[usr][0]);
         if(verifi){
-            registro.style.display = "none";
-            logo.style.display = "flex";
+            var active = color[usr][1];
+            if(active){
+                registro.style.display = "none";
+                logo.style.display = "flex";
+            }else{
+                user.value = "";
+                password.value = "";
+                alert(color[usr][2]);
+            }
         }
         else{
             user.value = "";
