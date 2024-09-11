@@ -16,6 +16,13 @@
             <button onclick="login()">LOGIN</button>
         </div>
     </section>
+    <section id="body-admin">
+        <div id="admin-pswr">
+            <h2>Clave de Supervisor</h2>
+            <input id="password-admin" type="password" placeholder="CLAVE">
+            <button id="autorizar" onclick="reversaOP()">AUTORIZAR</button>
+        </div>
+    </section>
     <header>
         <section id="nav-bar">
             <ul class="option-list">
@@ -156,7 +163,7 @@
                     </div>
                     <!-- GRABAR -->
                     <button id="boton-grabar" onclick="saveOP()">GRABAR</button>
-                    <button id="boton-reversa" onclick="reversaOP()">REVERSA</button>
+                    <button id="boton-reversa" onclick="verifi()">REVERSA</button>
                 </div>
             </section>
             <!-- TABLA DE OPERACIONES ---------------------------------->
