@@ -617,6 +617,11 @@ select,
 		flex-basis: 10%;
 		margin-left: 20px;
 	}
+	.titulo-op-cheque {
+		text-align: center;
+		font-size: 1.3rem;
+		border-top: solid 1px var(--gris-o);
+	}
 	#input-bar select[name="bn-oc-inp-br"] {
 		flex-basis: 18%;
 	}
