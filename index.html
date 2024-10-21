@@ -1,277 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="icon" type="image/svg+xml" href="img/ico.svg">
-    <title>Banking Simulator BJP</title>
-</head>
-<body>
-    <section id="body-user">
-        <div id="user-register">
-            <h2>Iniciar sesión</h2>
-            <input id="user-data" type="email" placeholder="USUARIO">
-            <input id="password-data" type="password" placeholder="CONTRASEÑA">
-            <button onclick="login()">LOGIN</button>
-        </div>
-    </section>
-    <section id="body-admin">
-        <div id="admin-pswr">
-            <h2>Clave de Supervisor</h2>
-            <input id="password-admin" type="password" placeholder="CLAVE">
-            <button id="autorizar" onclick="reversaOP()">AUTORIZAR</button>
-        </div>
-    </section>
-    <header>
-        <section id="nav-bar">
-            <ul class="option-list">
-                <li class="option" onclick="openOperaciones()">OPERACIONES</li>
-                <li class="option" onclick="openCodigos()">CODIGOS</li>
-                <li class="option" onclick="openCaja()">CUADRE DE CAJA</li>
-                <li class="option" onclick="saveCapture()">GUARDAR</li>
-            </ul>
-        </section>
-    </header>
-    <main>
-        <section id="body-opData">
-            <div id="exit-OP" onclick="closeOperaciones()">
-                x
-            </div>
-            <!-- SALDO - TIPO DE CMABIO - INGRESO ---------------------->
-            <Section id="info-bar" class="row sec-ventana">
-                <!-- INGRESO ----------------->
-                <div id="ing-info-bar" class="box-info">
-                    <div><h2>INGRESO INICIAL</h2></div><!-- TITULO -->
-                    <!-- SOLES -->
-                    <input id="ing-s/" type="number" step="0.01" placeholder="S/ 000.00" onchange="showPEN()">
-                    <!-- DOLARES -->
-                    <input id="ing-$" type="number" step="0.01" placeholder="$ 000.00" onchange="showUSD()">        
-                    <!-- EUROS -->
-                    <input id="ing-E" type="number" step="0.01" placeholder="000.00 €" onchange="showEUR()">            
-                </div>
-                <!-- TIPO CAMBIO ------------->
-                <div id="tc-info-bar" class="box-info">
-                    <div><h2>TIPO DE CAMBIO</h2></div><!-- TITULO -->
-                    <!-- DATOS -->
-                    <div class="row">
-                        <!-- MONEDAS -->
-                        <p>DOLARES</p>
-                        <p>EUROS</p>
-                        <p>DOLARES</p>
-                        <p>EUROS</p>
-                    </div>
-                    <div class="row">
-                        <!-- VENTA -->
-                        <div class="text-tipocambio"><p>VENT.</p></div>
-                        <input id="tc-v-$" type="number" step="0.01" placeholder="S/ VENTA" onchange="saveTipoCambio(this.value,'USD',7005,'tc-v-$')">
-                        <input id="tc-v-E" type="number" step="0.01" placeholder="S/ VENTA" onchange="saveTipoCambio(this.value,'EUR',7005,'tc-v-E')">
-                        <div class="text-tipocambio"><p>ESPECIAL</p></div>
-                        <input id="tc-ve-$" type="number" step="0.01" placeholder="S/ VENTA ESP." onchange="saveTipoCambio(this.value,'USD',7020,'tc-ve-$')">
-                        <input id="tc-ve-E" type="number" step="0.01" placeholder="S/ VENTA ESP." onchange="saveTipoCambio(this.value,'EUR',7020,'tc-ve-E')">
-                    </div>
-                    <div class="row">
-                        <!-- COMPRA -->
-                        <div class="text-tipocambio"><p>COMP.</p></div>
-                        <input id="tc-c-$" type="number" step="0.01" placeholder="S/ COMPRA" onchange="saveTipoCambio(this.value,'USD',7010,'tc-c-$')">
-                        <input id="tc-c-E" type="number" step="0.01" placeholder="S/ COMPRA" onchange="saveTipoCambio(this.value,'EUR',7010,'tc-c-E')">
-                        <div class="text-tipocambio"><p>ESPECIAL</p></div>
-                        <input id="tc-ce-$" type="number" step="0.01" placeholder="S/ COMPRA ESP." onchange="saveTipoCambio(this.value,'USD',7015,'tc-ce-$')">
-                        <input id="tc-ce-E" type="number" step="0.01" placeholder="S/ COMPRA ESP." onchange="saveTipoCambio(this.value,'EUR',7015,'tc-ce-E')">
-                    </div>
-                </div>
-                <!-- SALDO ------------------->
-                <div id="sal-info-bar" class="box-info">
-                    <div><h2>SALDO DE CAJA</h2></div><!-- TITULO -->
-                    <!-- DATOS -->
-                    <div class="row">
-                        <div><p id="sal-s/">000.00</p></div>
-                    </div>
-                    <div class="row">
-                        <div><p id="sal-$">000.00</p></div>
-                    </div>
-                    <div class="row">
-                        <div><p id="sal-E">000.00</p></div>
-                    </div>
-                </div>
-            </Section>
-            <!-- TIPO OP - OP CHEQUE - IMPORTE ------------------------->
-            <section id="input-bar" class="row sec-ventana">
-                <!-- TIPO OP ------------------>
-                <div id="to-input-bar">
-                    <!-- COD - TPO TRNA -->
-                    <div class="row">
-                        <div id="box-codigo">
-                            <label for="cod-to-inp-br">CÓDIGO :</label>
-                            <!-- <input id="cod-to-inp-br" type="number" min="100" max="999"> -->
-                            <select id="cod-to-inp-br" name="cod-to-inp-br" onchange="showTransac(this.value)">
-                                <option value=""></option>
-                            </select>
-                        </div>
-                        <p id="tipo-transac-p">TIPO DE TRANSACCIÓN</p>
-                    </div>
-                    <!-- TPO CUENT - NU CUENT -->
-                    <div class="row">
-                        <label for="tc-to-inp-br">TIPO CUENTA Y/O SERVICIO :</label>
-                        <select id="tc-to-inp-br" name="tc-to-inp-br">
-                            <option value=""></option>
-                        </select>
-                        <label for="nc-to-inp-br">N° CUENTA Y/O COD. SERVICIO :</label>
-                        <input id="nc-to-inp-br" type="number">
-                    </div>
-                </div>
-                <!-- OP CHEQUE ---------------->
-                <div id="oc-input-bar">
-                    <!-- CUENTA GIRA -->
-                    <div>
-                        <label for="cg-oc-inp-br">CUENTA QUE GIRA :</label>
-                        <input id="cg-oc-inp-br" type="number">
-                    </div>
-                    <!-- CHEQUE - PLAZA -->
-                    <div class="row">
-                        <!-- N CHEQUE -->
-                        <label for="nch-oc-inp-br">N° DE CHEQUE :</label>
-                        <input id="nch-oc-inp-br" type="number">
-                        <!-- PLAZA -->
-                        <label for="pl-oc-inp-br">PLAZA :</label>
-                        <select id="pl-oc-inp-br" name="pl-oc-inp-br">
-                            <option value=""> </option>
-                        </select>
-                    </div>
-                </div>
-                <!-- IMPORTE ------------------>
-                <div id="imp-input-bar" class="row">
-                    <!-- MONEDA -->
-                    <div>
-                        <label for="mo-imp-inp-br">MONEDA :</label>
-                        <select id="mo-imp-inp-br" name="mo-imp-inp-br" onchange="showComision(this.value)">
-                            <option value=""> </option>
-                            <option value="PEN">PEN</option>
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                        </select>
-                    </div>
-                    <!-- IMPORTE -->
-                    <div>
-                        <label for="imp-imp-inp-br">IMPORTE :</label>
-                        <input id="imp-imp-inp-br" type="number" step="0.01" placeholder="000.00">
-                    </div>
-                    <!-- COMISION -->
-                    <div>
-                        <label for="com-imp-inp-br">COMISIÓN :</label>
-                        <input id="com-imp-inp-br" type="number" step="0.01" placeholder="000.00">
-                    </div>
-                    <!-- GRABAR -->
-                    <button id="boton-grabar" onclick="saveOP()">GRABAR</button>
-                    <button id="boton-reversa" onclick="verifi()">REVERSA</button>
-                </div>
-            </section>
-            <!-- TABLA DE OPERACIONES ---------------------------------->
-            <section id="oudtpu-bar" class=" sec-ventana">
-                <div>
-                    <table border="1" id="tabla-oudtpu">
-                        <thead>
-                            <tr>
-                                <th>CÓDIGO</th>
-                                <th>TRANSACCIÓN</th>
-                                <th>CUENTA/SERVICIO</th>
-                                <th>N° CUENTA/COD. SERVICIO</th>
-                                <th>CTA. QUE GIRA</th>
-                                <th>N° CHEQUE</th>
-                                <th>PLAZA</th>
-                                <th>IMPORTE</th>
-                                <th>COMISIÓN</th>
-                                <th>EQ.PEN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </section>
-        <section id="body-codData">
-            <div id="exit-COD" onclick="closeCodigos()">
-                x
-            </div>
-            <table id="codigos-info-table">
-                <thead>
-                    <tr>
-                        <td>CÓDIGO</td>
-                        <td>TRANSACCIÓN</td>
-                        <td colspan="2">COMISIÓN</td>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
-        <section id="body-cajaData">
-            <div id="exit-CAJ" onclick="closeCaja()">
-                x
-            </div>
-            <div>
-                <h2>CUADRE DE CAJA</h2>
-            </div>
-            <table id="general">
-                <thead>
-                    <tr>
-                        <th>PRODUCTOS / SERVICIOS</th>
-                        <th> </th>
-                        <th> </th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>                   
-                </tbody>
-            </table>
-            <table id="especific">
-                <thead>
-                    <tr>
-                        <th> </th>
-                        <th>DEBE</th>
-                        <th>HABER</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SOLES</td>
-                        <td id="debe-PEN">S/ -</td>
-                        <td id="haber-PEN">S/ -</td>
-                    </tr>
-                    <tr>
-                        <td>DÓLARES</td>
-                        <td id="debe-USD">$-</td>
-                        <td id="haber-USD">$-</td>
-                    </tr>
-                    <tr>
-                        <td>EUROS</td>
-                        <td id="debe-EUR">- €</td>
-                        <td id="haber-EUR">- €</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="resoult">
-                <div>SALDO EFECTIVO</div>
-                <div id="saldo-efec-PEN">S/ -</div>
-                <div id="saldo-efec-USD">$ -</div>
-                <div id="saldo-efec-EUR">- €</div>
-            </div>
-        </section>
-        <div id="box-logo" class="row">
-            <img src="img/ico.svg" >
-            <div id="box-texto">
-                <h1>BJP</h1>
-                <p>Banking Simulator</p>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <section id="state-bar">
-            <p>Simuladore de caja</p>
-        </section>
-    </footer>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="app/app.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="style/style.css" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="img/ico.svg" />
+		<title>Banking Simulator BJP</title>
+	</head>
+	<body>
+		<section id="body-user">
+			<div id="user-register">
+				<h2>Iniciar sesión</h2>
+				<input
+					id="user-data"
+					type="email"
+					placeholder="USUARIO" />
+				<input
+					id="password-data"
+					type="password"
+					placeholder="CONTRASEÑA" />
+				<button onclick="login()">LOGIN</button>
+			</div>
+		</section>
+		<section id="body-admin">
+			<div id="admin-pswr">
+				<h2>Clave de Supervisor</h2>
+				<input
+					id="password-admin"
+					type="password"
+					placeholder="CLAVE" />
+				<button
+					id="autorizar"
+					onclick="reversaOP()">
+					AUTORIZAR
+				</button>
+			</div>
+		</section>
+		<header>
+			<section id="nav-bar">
+				<ul class="option-list">
+					<li
+						class="option"
+						onclick="openOperaciones()">
+						OPERACIONES
+					</li>
+					<li
+						class="option"
+						onclick="openCodigos()">
+						CODIGOS
+					</li>
+					<li
+						class="option"
+						onclick="openCaja()">
+						CUADRE DE CAJA
+					</li>
+					<li
+						class="option"
+						onclick="saveCapture()">
+						GUARDAR
+					</li>
+				</ul>
+			</section>
+		</header>
+		<main>
+			<section id="body-opData">
+				<div
+					id="exit-OP"
+					onclick="closeOperaciones()">
+					x
+				</div>
+				<!-- SALDO - TIPO DE CMABIO - INGRESO ---------------------->
+				<section
+					id="info-bar"
+					class="row sec-ventana">
+					<!-- INGRESO ----------------->
+					<div
+						id="ing-info-bar"
+						class="box-info">
+						<div><h2>INGRESO INICIAL</h2></div>
+						<!-- TITULO -->
+						<!-- SOLES -->
+						<input
+							id="ing-s/"
+							type="number"
+							step="0.01"
+							placeholder="S/ 000.00"
+							onchange="showPEN()" />
+						<!-- DOLARES -->
+						<input
+							id="ing-$"
+							type="number"
+							step="0.01"
+							placeholder="$ 000.00"
+							onchange="showUSD()" />
+						<!-- EUROS -->
+						<input
+							id="ing-E"
+							type="number"
+							step="0.01"
+							placeholder="000.00 €"
+							onchange="showEUR()" />
+					</div>
+					<!-- TIPO CAMBIO ------------->
+					<div
+						id="tc-info-bar"
+						class="box-info">
+						<div><h2>TIPO DE CAMBIO</h2></div>
+						<!-- TITULO -->
+						<!-- DATOS -->
+						<div class="row">
+							<!-- MONEDAS -->
+							<p>DOLARES</p>
+							<p>EUROS</p>
+							<p>DOLARES</p>
+							<p>EUROS</p>
+						</div>
+						<div class="row">
+							<!-- VENTA -->
+							<div class="text-tipocambio"><p>VENT.</p></div>
+							<input
+								id="tc-v-$"
+								type="number"
+								step="0.01"
+								placeholder="S/ VENTA"
+								onchange="saveTipoCambio(this.value,'USD',7005,'tc-v-$')" />
+							<input
+								id="tc-v-E"
+								type="number"
+								step="0.01"
+								placeholder="S/ VENTA"
+								onchange="saveTipoCambio(this.value,'EUR',7005,'tc-v-E')" />
+							<div class="text-tipocambio"><p>ESPECIAL</p></div>
+							<input
+								id="tc-ve-$"
+								type="number"
+								step="0.01"
+								placeholder="S/ VENTA ESP."
+								onchange="saveTipoCambio(this.value,'USD',7020,'tc-ve-$')" />
+							<input
+								id="tc-ve-E"
+								type="number"
+								step="0.01"
+								placeholder="S/ VENTA ESP."
+								onchange="saveTipoCambio(this.value,'EUR',7020,'tc-ve-E')" />
+						</div>
+						<div class="row">
+							<!-- COMPRA -->
+							<div class="text-tipocambio"><p>COMP.</p></div>
+							<input
+								id="tc-c-$"
+								type="number"
+								step="0.01"
+								placeholder="S/ COMPRA"
+								onchange="saveTipoCambio(this.value,'USD',7010,'tc-c-$')" />
+							<input
+								id="tc-c-E"
+								type="number"
+								step="0.01"
+								placeholder="S/ COMPRA"
+								onchange="saveTipoCambio(this.value,'EUR',7010,'tc-c-E')" />
+							<div class="text-tipocambio"><p>ESPECIAL</p></div>
+							<input
+								id="tc-ce-$"
+								type="number"
+								step="0.01"
+								placeholder="S/ COMPRA ESP."
+								onchange="saveTipoCambio(this.value,'USD',7015,'tc-ce-$')" />
+							<input
+								id="tc-ce-E"
+								type="number"
+								step="0.01"
+								placeholder="S/ COMPRA ESP."
+								onchange="saveTipoCambio(this.value,'EUR',7015,'tc-ce-E')" />
+						</div>
+					</div>
+					<!-- SALDO ------------------->
+					<div
+						id="sal-info-bar"
+						class="box-info">
+						<div><h2>SALDO DE CAJA</h2></div>
+						<!-- TITULO -->
+						<!-- DATOS -->
+						<div class="row">
+							<div><p id="sal-s/">000.00</p></div>
+						</div>
+						<div class="row">
+							<div><p id="sal-$">000.00</p></div>
+						</div>
+						<div class="row">
+							<div><p id="sal-E">000.00</p></div>
+						</div>
+					</div>
+				</section>
+				<!-- TIPO OP - OP CHEQUE - IMPORTE ------------------------->
+				<section
+					id="input-bar"
+					class="row sec-ventana">
+					<!-- TIPO OP ------------------>
+					<div id="to-input-bar">
+						<!-- COD - TPO TRNA -->
+						<div class="row">
+							<div id="box-codigo">
+								<label for="cod-to-inp-br"
+									>CÓDIGO DE TRANSACCIÓN :</label
+								>
+								<!-- <input id="cod-to-inp-br" type="number" min="100" max="999"> -->
+								<select
+									id="cod-to-inp-br"
+									name="cod-to-inp-br"
+									onchange="showTransac(this.value)">
+									<option value=""></option>
+								</select>
+							</div>
+							<p id="tipo-transac-p">TIPO DE TRANSACCIÓN</p>
+						</div>
+						<!-- TPO CUENT - NU CUENT -->
+						<div class="row">
+							<label for="tc-to-inp-br"
+								>TIPO DE PRODUCTO Y/O SERVICIO :</label
+							>
+							<select
+								id="tc-to-inp-br"
+								name="tc-to-inp-br">
+								<option value=""></option>
+							</select>
+							<label for="nc-to-inp-br"
+								>N° DE CUENTA Y/O CÓDIGO DE SERVICIO :</label
+							>
+							<input
+								id="nc-to-inp-br"
+								type="number" />
+						</div>
+					</div>
+					<!-- OP CHEQUE ---------------->
+					<div id="oc-input-bar">
+						<h2>SOLO PARA OPERACIONES CON CHEQUE</h2>
+						<!-- CUENTA GIRA -->
+						<div>
+							<label for="cg-oc-inp-br"
+								>CTA. CTE. DEL GIRADOR :</label
+							>
+							<input
+								id="cg-oc-inp-br"
+								type="number" />
+						</div>
+						<!-- CHEQUE - PLAZA -->
+						<div class="row">
+							<!-- N CHEQUE -->
+							<label for="nch-oc-inp-br">N° DE CHEQUE :</label>
+							<input
+								id="nch-oc-inp-br"
+								type="number" />
+							<!-- PLAZA -->
+							<label for="pl-oc-inp-br">PLAZA :</label>
+							<select
+								id="pl-oc-inp-br"
+								name="pl-oc-inp-br">
+								<option value=""></option>
+							</select>
+							<!-- BANCO -->
+							<label for="bn-oc-inp-br">BANCO :</label>
+							<select
+								id="bn-oc-inp-br"
+								name="bn-oc-inp-br">
+								<option value=""></option>
+								<option>BCP 02</option>
+								<option>INTERBANK 03</option>
+								<option>BBVA 11</option>
+							</select>
+						</div>
+					</div>
+					<!-- IMPORTE ------------------>
+					<div
+						id="imp-input-bar"
+						class="row">
+						<!-- MONEDA -->
+						<div>
+							<label for="mo-imp-inp-br">MONEDA :</label>
+							<select
+								id="mo-imp-inp-br"
+								name="mo-imp-inp-br"
+								onchange="showComision(this.value)">
+								<option value=""></option>
+								<option value="PEN">PEN</option>
+								<option value="USD">USD</option>
+								<option value="EUR">EUR</option>
+							</select>
+						</div>
+						<!-- IMPORTE -->
+						<div>
+							<label for="imp-imp-inp-br">IMPORTE :</label>
+							<input
+								id="imp-imp-inp-br"
+								type="number"
+								step="0.01"
+								placeholder="000.00" />
+						</div>
+						<!-- COMISION -->
+						<div>
+							<label for="com-imp-inp-br">COMISIÓN :</label>
+							<input
+								id="com-imp-inp-br"
+								type="number"
+								step="0.01"
+								placeholder="000.00" />
+						</div>
+						<!-- GRABAR -->
+						<button
+							id="boton-grabar"
+							onclick="saveOP()">
+							GRABAR
+						</button>
+						<button
+							id="boton-reversa"
+							onclick="verifi()">
+							REVERSA
+						</button>
+					</div>
+				</section>
+				<!-- TABLA DE OPERACIONES ---------------------------------->
+				<section
+					id="oudtpu-bar"
+					class="sec-ventana">
+					<div>
+						<table
+							border="1"
+							id="tabla-oudtpu">
+							<thead>
+								<tr>
+									<th>CÓDIGO</th>
+									<th>TRANSACCIÓN</th>
+									<th>CUENTA/SERVICIO</th>
+									<th>N° CUENTA/COD. SERVICIO</th>
+									<th>CTA. QUE GIRA</th>
+									<th>N° CHEQUE</th>
+									<th>PLAZA</th>
+									<th>IMPORTE</th>
+									<th>COMISIÓN</th>
+									<th>EQ.PEN</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</section>
+			</section>
+			<section id="body-codData">
+				<div
+					id="exit-COD"
+					onclick="closeCodigos()">
+					x
+				</div>
+				<table id="codigos-info-table">
+					<thead>
+						<tr>
+							<td>CÓDIGO</td>
+							<td>TRANSACCIÓN</td>
+							<td colspan="2">COMISIÓN</td>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</section>
+			<section id="body-cajaData">
+				<div
+					id="exit-CAJ"
+					onclick="closeCaja()">
+					x
+				</div>
+				<div>
+					<h2>CUADRE DE CAJA</h2>
+				</div>
+				<table id="general">
+					<thead>
+						<tr>
+							<th>PRODUCTOS / SERVICIOS</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<table id="especific">
+					<thead>
+						<tr>
+							<th></th>
+							<th>DEBE</th>
+							<th>HABER</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>SOLES</td>
+							<td id="debe-PEN">S/ -</td>
+							<td id="haber-PEN">S/ -</td>
+						</tr>
+						<tr>
+							<td>DÓLARES</td>
+							<td id="debe-USD">$-</td>
+							<td id="haber-USD">$-</td>
+						</tr>
+						<tr>
+							<td>EUROS</td>
+							<td id="debe-EUR">- €</td>
+							<td id="haber-EUR">- €</td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="resoult">
+					<div>SALDO EFECTIVO</div>
+					<div id="saldo-efec-PEN">S/ -</div>
+					<div id="saldo-efec-USD">$ -</div>
+					<div id="saldo-efec-EUR">- €</div>
+				</div>
+			</section>
+			<div
+				id="box-logo"
+				class="row">
+				<img src="img/ico.svg" />
+				<div id="box-texto">
+					<h1>BJP</h1>
+					<p>Banking Simulator</p>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<section id="state-bar">
+				<p>Simuladore de caja</p>
+			</section>
+		</footer>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script src="app/app.js"></script>
 </html>
