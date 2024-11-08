@@ -669,6 +669,7 @@ function restarValues() {
 	listMoneda.value = "";
 	datoImporte.value = "";
 	datoComision.value = "";
+	banco.value = "";
 }
 
 // EJECUTABLES --------------------------------------
