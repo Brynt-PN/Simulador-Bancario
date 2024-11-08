@@ -621,7 +621,7 @@ select,
 	.titulo-op-cheque {
 		text-align: center;
 		font-size: 1.3rem;
-		border-top: solid 5px var(--gris-o);
+		border-top: solid 2px var(--n);
 	}
 	#input-bar select[name="bn-oc-inp-br"] {
 		flex-basis: 18%;

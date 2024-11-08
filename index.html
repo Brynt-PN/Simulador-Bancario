@@ -239,6 +239,53 @@
 								type="number" />
 						</div>
 					</div>
+					<!-- IMPORTE ------------------>
+					<div
+						id="imp-input-bar"
+						class="row">
+						<!-- MONEDA -->
+						<div>
+							<label for="mo-imp-inp-br">MONEDA :</label>
+							<select
+								id="mo-imp-inp-br"
+								name="mo-imp-inp-br"
+								onchange="showComision(this.value)">
+								<option value=""></option>
+								<option value="PEN">PEN</option>
+								<option value="USD">USD</option>
+								<option value="EUR">EUR</option>
+							</select>
+						</div>
+						<!-- IMPORTE -->
+						<div>
+							<label for="imp-imp-inp-br">IMPORTE :</label>
+							<input
+								id="imp-imp-inp-br"
+								type="number"
+								step="0.01"
+								placeholder="000.00" />
+						</div>
+						<!-- COMISION -->
+						<div>
+							<label for="com-imp-inp-br">COMISIÓN :</label>
+							<input
+								id="com-imp-inp-br"
+								type="number"
+								step="0.01"
+								placeholder="000.00" />
+						</div>
+						<!-- GRABAR -->
+						<button
+							id="boton-grabar"
+							onclick="saveOP()">
+							GRABAR
+						</button>
+						<button
+							id="boton-reversa"
+							onclick="verifi()">
+							REVERSA
+						</button>
+					</div>
 					<!-- OP CHEQUE ---------------->
 					<div id="oc-input-bar">
 						<h2 class="titulo-op-cheque">
@@ -295,53 +342,6 @@
 								<option>56 SANTANDER</option>
 							</select>
 						</div>
-					</div>
-					<!-- IMPORTE ------------------>
-					<div
-						id="imp-input-bar"
-						class="row">
-						<!-- MONEDA -->
-						<div>
-							<label for="mo-imp-inp-br">MONEDA :</label>
-							<select
-								id="mo-imp-inp-br"
-								name="mo-imp-inp-br"
-								onchange="showComision(this.value)">
-								<option value=""></option>
-								<option value="PEN">PEN</option>
-								<option value="USD">USD</option>
-								<option value="EUR">EUR</option>
-							</select>
-						</div>
-						<!-- IMPORTE -->
-						<div>
-							<label for="imp-imp-inp-br">IMPORTE :</label>
-							<input
-								id="imp-imp-inp-br"
-								type="number"
-								step="0.01"
-								placeholder="000.00" />
-						</div>
-						<!-- COMISION -->
-						<div>
-							<label for="com-imp-inp-br">COMISIÓN :</label>
-							<input
-								id="com-imp-inp-br"
-								type="number"
-								step="0.01"
-								placeholder="000.00" />
-						</div>
-						<!-- GRABAR -->
-						<button
-							id="boton-grabar"
-							onclick="saveOP()">
-							GRABAR
-						</button>
-						<button
-							id="boton-reversa"
-							onclick="verifi()">
-							REVERSA
-						</button>
 					</div>
 				</section>
 				<!-- TABLA DE OPERACIONES ---------------------------------->
