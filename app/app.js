@@ -318,7 +318,7 @@ const celdasOcultas = [8005];
 const color = {
 	YWRtaW5Ac2IuY29t: ["c2IxOTk4", true, "INGRESO NO AUTORIZADO"],
 	"cmV2ZXJzYQ==": ["MTE0Nzg="],
-	Q0JDNTAw: ["MTAyMDMw", true, "INGRESO NO AUTORIZADO"],
+	Q0JDNTAw: ["MTAyMDMw", false, "INGRESO NO AUTORIZADO"],
 	Q0JDNTEw: ["MTAyMDQw", false, "INGRESO NO AUTORIZADO"],
 	Q0JDNTIw: ["MTAyMDUw", false, "INGRESO NO AUTORIZADO"],
 	Q0JDNTMw: ["MTAyMDYw", false, "INGRESO NO AUTORIZADO"],
